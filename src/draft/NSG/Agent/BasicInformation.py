@@ -4674,7 +4674,11 @@ class BasicInformationResponse(CamelCaseModel):
 
 
 DEFINITION = DataProductDefinition(
-    description="Data Product for Agent Basic Information",
+    description="In the Nordic Smart Government information exchange context the agent "
+    'represents both registered organizations ("companies") and persons who are doing '
+    "business without being registered organizations, usually as sole traders (sole "
+    "proprietors). This data product definition returns basic information content for "
+    "any agent.",
     request=BasicInformationRequest,
     response=BasicInformationResponse,
     route_description="Agent Basic Information",
