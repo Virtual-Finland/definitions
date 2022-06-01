@@ -4694,60 +4694,98 @@
       },
       "RegisteredAddress": {
         "title": "RegisteredAddress",
-        "required": [
-          "streetName",
-          "buildingDesignator",
-          "postalCode",
-          "city",
-          "region",
-          "country"
-        ],
+        "required": ["adminUnitLevel_1"],
         "type": "object",
         "properties": {
-          "streetName": {
-            "title": "Street name",
+          "fullAddress": {
+            "title": "Full address",
+            "maxLength": 250,
+            "minLength": 1,
+            "type": "string",
+            "description": "The complete address written as a string. Use of this property is recommended as it will not suffer any misunderstandings that might arise through the breaking up of an address into its component parts.",
+            "example": "Tietotie 4 A 7, 00100 Helsinki, Finland"
+          },
+          "thoroughfare": {
+            "title": "Thoroughfare",
             "maxLength": 40,
             "minLength": 1,
             "type": "string",
-            "example": "Fredrikinkatu"
+            "description": "The name of a passage or way through from one location to another. A thoroughfare is usually a street, but it might be a waterway or some other feature.",
+            "example": "Avenue des Champs-Élysées"
           },
-          "buildingDesignator": {
-            "title": "Building designator",
+          "locatorDesignator": {
+            "title": "Locator designator",
             "maxLength": 10,
             "minLength": 1,
             "type": "string",
-            "example": "34 A 17"
+            "description": "A number or sequence of characters that uniquely identifies the locator within the relevant scope. In simpler terms, this is the building number, apartment number, etc.",
+            "example": "Flat 3, 17 or 3 A 4"
           },
-          "postalCode": {
-            "title": "Postal code",
+          "locatorName": {
+            "title": "Locator name",
+            "maxLength": 40,
+            "minLength": 1,
+            "type": "string",
+            "description": "Proper noun(s) applied to the real world entity identified by the locator. The locator name could be the name of the property or complex, of the building or part of the building, or it could be the name of a room inside a building. The key difference between a locator and a locator name is that the latter is a proper name and is unlikely to include digits.",
+            "example": "Shumann, Berlaymont (meeting room name)"
+          },
+          "addressArea": {
+            "title": "Address area",
+            "maxLength": 40,
+            "minLength": 1,
+            "type": "string",
+            "description": "The name of a geographic area that groups Addresses. This would typically be part of a city, a neighbourhood or village. Address area is not an administrative unit.",
+            "example": "Montmartre (in Paris)"
+          },
+          "postCode": {
+            "title": "Post code",
             "maxLength": 10,
             "minLength": 1,
             "type": "string",
-            "example": "00100"
+            "description": "The code created and maintained for postal purposes to identify a subdivision of addresses and postal delivery points.",
+            "example": "75000"
           },
-          "city": {
-            "title": "City",
-            "maxLength": 20,
+          "postName": {
+            "title": "Post name",
+            "maxLength": 40,
             "minLength": 1,
             "type": "string",
-            "example": "Helsinki"
+            "description": "A name created and maintained for postal purposes to identify a subdivision of addresses and postal delivery points. Usually a city.",
+            "example": "Paris"
           },
-          "region": {
-            "title": "Region",
-            "maxLength": 20,
+          "poBox": {
+            "title": "PO box",
+            "maxLength": 10,
             "minLength": 1,
             "type": "string",
-            "example": "Southern Finland"
+            "description": "A location designator for a postal delivery point at a post office, usually a number.",
+            "example": "9383"
           },
-          "country": {
-            "title": "Country",
+          "adminUnitLevel_1": {
+            "title": "Admin unit level 1",
             "allOf": [
               {
                 "$ref": "#/components/schemas/ISO_3166_1_Alpha_2"
               }
             ],
-            "description": "ISO 3166-1 alpha-2 code for the country",
-            "example": "FI"
+            "description": "The name of the uppermost level of the address, almost always a country. ISO 3166 two character (Alpha 2) format",
+            "example": "US"
+          },
+          "adminUnitLevel_2": {
+            "title": "Admin unit level 2",
+            "maxLength": 40,
+            "minLength": 1,
+            "type": "string",
+            "description": "The name of a secondary level/region of the address, usually a county, state or other such area that typically encompasses several localities. Values could be a region or province, more granular than level 1.",
+            "example": "Uusimaa"
+          },
+          "addressId": {
+            "title": "Address id",
+            "maxLength": 40,
+            "minLength": 1,
+            "type": "string",
+            "description": "A globally unique identifier for each instance of an Address. The concept of adding a globally unique identifier for each instance of an address is a crucial part of the INSPIRE data spec. A number of EU countries have already implemented an ID (a UUID) in their Address Register, among them Denmark.",
+            "example": "123e4567-e89b-12d3-a456-42661417400"
           }
         }
       },

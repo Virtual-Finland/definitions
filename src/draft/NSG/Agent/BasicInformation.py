@@ -4530,46 +4530,113 @@ class LegalStatus(str, Enum):
 
 
 class RegisteredAddress(CamelCaseModel):
-    street_name: str = Field(
-        ...,
-        title="Street name",
-        example="Fredrikinkatu",
+    full_address: Optional[str] = Field(
+        None,
+        title="Full address",
+        description="The complete address written as a string. Use of this property is "
+        "recommended as it will not suffer any misunderstandings that might arise "
+        "through the breaking up of an address into its component parts.",
+        example="Tietotie 4 A 7, 00100 Helsinki, Finland",
+        min_length=1,
+        max_length=250,
+    )
+    thoroughfare: Optional[str] = Field(
+        None,
+        title="Thoroughfare",
+        description="The name of a passage or way through from one location to "
+        "another. A thoroughfare is usually a street, but it might be a waterway or "
+        "some other feature.",
+        example="Avenue des Champs-Élysées",
         min_length=1,
         max_length=40,
     )
-    building_designator: str = Field(
-        ...,
-        title="Building designator",
-        example="34 A 17",
+    locator_designator: Optional[str] = Field(
+        None,
+        title="Locator designator",
+        description="A number or sequence of characters that uniquely identifies the "
+        "locator within the relevant scope. In simpler terms, this is the building "
+        "number, apartment number, etc.",
+        example="Flat 3, 17 or 3 A 4",
         min_length=1,
         max_length=10,
     )
-    postal_code: str = Field(
-        ...,
-        title="Postal code",
-        example="00100",
+    locator_name: Optional[str] = Field(
+        None,
+        title="Locator name",
+        description="Proper noun(s) applied to the real world entity identified by the "
+        "locator. The locator name could be the name of the property or complex, of "
+        "the building or part of the building, or it could be the name of a room "
+        "inside a building. The key difference between a locator and a locator name is "
+        "that the latter is a proper name and is unlikely to include digits.",
+        example="Shumann, Berlaymont (meeting room name)",
+        min_length=1,
+        max_length=40,
+    )
+    address_area: Optional[str] = Field(
+        None,
+        title="Address area",
+        description="The name of a geographic area that groups Addresses. This would "
+        "typically be part of a city, a neighbourhood or village. Address area is not "
+        "an administrative unit.",
+        example="Montmartre (in Paris)",
+        min_length=1,
+        max_length=40,
+    )
+    post_code: Optional[str] = Field(
+        None,
+        title="Post code",
+        description="The code created and maintained for postal purposes to identify a "
+        "subdivision of addresses and postal delivery points.",
+        example="75000",
         min_length=1,
         max_length=10,
     )
-    city: str = Field(
-        ...,
-        title="City",
-        example="Helsinki",
+    post_name: Optional[str] = Field(
+        None,
+        title="Post name",
+        description="A name created and maintained for postal purposes to identify a "
+        "subdivision of addresses and postal delivery points. Usually a city.",
+        example="Paris",
         min_length=1,
-        max_length=20,
+        max_length=40,
     )
-    region: Optional[str] = Field(
-        ...,
-        title="Region",
-        example="Southern Finland",
+    po_box: Optional[str] = Field(
+        None,
+        title="PO box",
+        description="A location designator for a postal delivery point at a post "
+        "office, usually a number.",
+        example="9383",
         min_length=1,
-        max_length=20,
+        max_length=10,
     )
-    country: ISO_3166_1_Alpha_2 = Field(
+    admin_unit_level_1: ISO_3166_1_Alpha_2 = Field(
         ...,
-        title="Country",
-        description="ISO 3166-1 alpha-2 code for the country",
-        example="FI",
+        title="Admin unit level 1",
+        description="The name of the uppermost level of the address, almost always a "
+        "country. ISO 3166 two character (Alpha 2) format",
+        example="US",
+    )
+    admin_unit_level_2: Optional[str] = Field(
+        None,
+        title="Admin unit level 2",
+        description="The name of a secondary level/region of the address, usually a "
+        "county, state or other such area that typically encompasses several "
+        "localities. Values could be a region or province, more granular than level 1.",
+        example="Uusimaa",
+        min_length=1,
+        max_length=40,
+    )
+    address_id: Optional[str] = Field(
+        None,
+        title="Address id",
+        description="A globally unique identifier for each instance of an Address. The "
+        "concept of adding a globally unique identifier for each instance of an "
+        "address is a crucial part of the INSPIRE data spec. A number of EU countries "
+        "have already implemented an ID (a UUID) in their Address Register, among them "
+        "Denmark.",
+        example="123e4567-e89b-12d3-a456-42661417400",
+        min_length=1,
+        max_length=40,
     )
 
 
