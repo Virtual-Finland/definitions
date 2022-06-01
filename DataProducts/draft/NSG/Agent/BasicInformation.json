@@ -1,15 +1,15 @@
 {
   "openapi": "3.0.2",
   "info": {
-    "title": "Legal Entity Basic Information",
-    "description": "Data Product for Legal Entity Basic Information",
+    "title": "Agent Basic Information",
+    "description": "Data Product for Agent Basic Information",
     "version": "1.0.0"
   },
   "paths": {
     "/draft/NSG/Agent/BasicInformation": {
       "post": {
         "summary": "draft/NSG/Agent/BasicInformation",
-        "description": "Legal Entity Basic Information",
+        "description": "Agent Basic Information",
         "operationId": "request_draft_NSG_Agent_BasicInformation",
         "parameters": [
           {
