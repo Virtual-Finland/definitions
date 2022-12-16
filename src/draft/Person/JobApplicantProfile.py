@@ -4197,27 +4197,26 @@ class WorkingLanguage(str, Enum):
     SWEDISH = "Swedish"
 
 
-class FinnishRegion(str, Enum):
-    # TODO: Should we use https://en.wikipedia.org/wiki/ISO_3166-2:FI instead?
-    ALAND = "Åland"
-    CENTRAL_FINLAND = "Central Finland"
-    CENTRAL_OSTROBOTHNIA = "Central Ostrobothnia"
-    KAINUU = "Kainuu"
-    KANTA_HAME = "Kanta-Häme"
-    KYMENLAAKSO = "Kymenlaakso"
-    LAPLAND = "Lapland"
-    NORTH_KARELIA = "North Karelia"
-    NORTH_OSTROBOTHNIA = "North Ostrobothnia"
-    NORTH_SAVO = "North Savo"
-    OSTROBOTHNIA = "Ostrobothnia"
-    PAIJAT_HAME = "Päijät-Häme"
-    PIRKANMAA = "Pirkanmaa"
-    SATAKUNTA = "Satakunta"
-    SOUTH_KARELIA = "South Karelia"
-    SOUTH_OSTROBOTHNIA = "South Ostrobothnia"
-    SOUTH_SAVO = "South Savo"
-    SOUTHWEST_FINLAND = "Southwest Finland"
-    UUSIMAA = "Uusimaa"
+class ISO_3166_2_FI(str, Enum):
+    FI_01 = "FI-01"
+    FI_02 = "FI-02"
+    FI_03 = "FI-03"
+    FI_04 = "FI-04"
+    FI_05 = "FI-05"
+    FI_06 = "FI-06"
+    FI_07 = "FI-07"
+    FI_08 = "FI-08"
+    FI_09 = "FI-09"
+    FI_10 = "FI-10"
+    FI_11 = "FI-11"
+    FI_12 = "FI-12"
+    FI_13 = "FI-13"
+    FI_14 = "FI-14"
+    FI_15 = "FI-15"
+    FI_16 = "FI-16"
+    FI_17 = "FI-17"
+    FI_18 = "FI-18"
+    FI_19 = "FI-19"
 
 
 class FinnishMunicipality(str, Enum):
@@ -4676,7 +4675,7 @@ class Permit(CamelCaseModel):
 
 
 class WorkPreference(CamelCaseModel):
-    preferred_region: List[FinnishRegion] = Field(
+    preferred_region: List[ISO_3166_2_FI] = Field(
         None,
         title="Preferred region",
         description="The potential regions in Finland that the user desired to find a "

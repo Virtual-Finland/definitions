@@ -3643,32 +3643,6 @@
         "type": "string",
         "description": "An enumeration."
       },
-      "FinnishRegion": {
-        "title": "FinnishRegion",
-        "enum": [
-          "Åland",
-          "Central Finland",
-          "Central Ostrobothnia",
-          "Kainuu",
-          "Kanta-Häme",
-          "Kymenlaakso",
-          "Lapland",
-          "North Karelia",
-          "North Ostrobothnia",
-          "North Savo",
-          "Ostrobothnia",
-          "Päijät-Häme",
-          "Pirkanmaa",
-          "Satakunta",
-          "South Karelia",
-          "South Ostrobothnia",
-          "South Savo",
-          "Southwest Finland",
-          "Uusimaa"
-        ],
-        "type": "string",
-        "description": "An enumeration."
-      },
       "HTTPValidationError": {
         "title": "HTTPValidationError",
         "type": "object",
@@ -3681,6 +3655,32 @@
             }
           }
         }
+      },
+      "ISO_3166_2_FI": {
+        "title": "ISO_3166_2_FI",
+        "enum": [
+          "FI-01",
+          "FI-02",
+          "FI-03",
+          "FI-04",
+          "FI-05",
+          "FI-06",
+          "FI-07",
+          "FI-08",
+          "FI-09",
+          "FI-10",
+          "FI-11",
+          "FI-12",
+          "FI-13",
+          "FI-14",
+          "FI-15",
+          "FI-16",
+          "FI-17",
+          "FI-18",
+          "FI-19"
+        ],
+        "type": "string",
+        "description": "An enumeration."
       },
       "JobApplicantProfileRequest": {
         "title": "JobApplicantProfileRequest",
@@ -4903,7 +4903,7 @@
             "title": "Preferred region",
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/FinnishRegion"
+              "$ref": "#/components/schemas/ISO_3166_2_FI"
             },
             "description": "The potential regions in Finland that the user desired to find a job from."
           },
