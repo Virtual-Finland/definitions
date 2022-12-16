@@ -98,14 +98,14 @@
             "maxLength": 250,
             "type": "string",
             "description": "The name of the acquired qualification.",
-            "example": ""
+            "example": "Hygiene passport"
           },
           "qualificationType": {
             "title": "Qualification type",
             "maxLength": 250,
             "type": "string",
-            "description": "Type of qualification clarifies how the qualification has been acquired (e.g. self-organized / institutional).",
-            "example": "Self-organized"
+            "description": "Type of qualification clarifies how the qualification has been acquired (e.g. Self-organized / Institutional).",
+            "example": "Institutional"
           }
         }
       },
@@ -3691,12 +3691,12 @@
         "title": "JobApplicantProfileResponse",
         "required": [
           "occupations",
-          "education",
+          "educations",
           "languageSkills",
           "otherSkills",
-          "certification",
-          "permit",
-          "workPreference"
+          "certifications",
+          "permits",
+          "workPreferences"
         ],
         "type": "object",
         "properties": {
@@ -3708,7 +3708,7 @@
             },
             "description": "The work history of a person with a list of occupations, related industry fields, employer and the duration of a specific work experience."
           },
-          "education": {
+          "educations": {
             "title": "Education",
             "type": "array",
             "items": {
@@ -3720,7 +3720,7 @@
             "title": "Language skills",
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/LanguageSkills"
+              "$ref": "#/components/schemas/LanguageSkill"
             },
             "description": "List of person's language skills acquired with the earlier person's experience"
           },
@@ -3728,11 +3728,11 @@
             "title": "Other skills",
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/OtherSkills"
+              "$ref": "#/components/schemas/OtherSkill"
             },
             "description": "List of person's skills acquired with the work experience, education, certification and permits"
           },
-          "certification": {
+          "certifications": {
             "title": "Certification",
             "type": "array",
             "items": {
@@ -3740,7 +3740,7 @@
             },
             "description": "The certifications acquired by the person"
           },
-          "permit": {
+          "permits": {
             "title": "Permit",
             "type": "array",
             "items": {
@@ -3748,7 +3748,7 @@
             },
             "description": "The permits acquired by the person"
           },
-          "workPreference": {
+          "workPreferences": {
             "title": "Work preference",
             "allOf": [
               {
@@ -3759,8 +3759,8 @@
           }
         }
       },
-      "LanguageSkills": {
-        "title": "LanguageSkills",
+      "LanguageSkill": {
+        "title": "LanguageSkill",
         "type": "object",
         "properties": {
           "escoIdentifier": {
@@ -4815,8 +4815,8 @@
           }
         }
       },
-      "OtherSkills": {
-        "title": "OtherSkills",
+      "OtherSkill": {
+        "title": "OtherSkill",
         "type": "object",
         "properties": {
           "escoIdentifier": {
@@ -4836,7 +4836,7 @@
               }
             ],
             "description": "The language skill level according to Common European Framework of Reference for Languages, known as CERF.",
-            "example": "Beginner"
+            "example": "beginner"
           }
         }
       },
@@ -4849,20 +4849,20 @@
             "maxLength": 250,
             "type": "string",
             "description": "The name of the acquired permit.",
-            "example": ""
+            "example": "Hot work permit"
           },
           "permitType": {
             "title": "Permit type",
             "maxLength": 250,
             "type": "string",
-            "description": "Type of qualification clarifies how the qualification has been acquired (e.g. self-organized / institutional).",
-            "example": "Self-organized"
+            "description": "Type of qualification clarifies how the qualification has been acquired (e.g. Self-organized / Institutional).",
+            "example": "Institutional"
           }
         }
       },
       "SkillLevel": {
         "title": "SkillLevel",
-        "enum": ["Beginner", "Intermediate", "Master"],
+        "enum": ["beginner", "intermediate", "master"],
         "type": "string",
         "description": "An enumeration."
       },
@@ -4905,7 +4905,8 @@
             "items": {
               "$ref": "#/components/schemas/ISO_3166_2_FI"
             },
-            "description": "The potential regions in Finland that the user desired to find a job from."
+            "description": "The potential regions in Finland that the user desired to find a job from.",
+            "example": "FI-18"
           },
           "preferredMunicipality": {
             "title": "Preferred municipality",
@@ -4913,7 +4914,8 @@
             "items": {
               "$ref": "#/components/schemas/FinnishMunicipality"
             },
-            "description": "The potential municipalities in Finland that the user desires to find a job from."
+            "description": "The potential municipalities in Finland that the user desires to find a job from.",
+            "example": "091"
           },
           "typeOfEmployment": {
             "title": "Type of employment",
@@ -4922,7 +4924,8 @@
                 "$ref": "#/components/schemas/EmploymentType"
               }
             ],
-            "description": "The type of employment contract that the person is looking for."
+            "description": "The type of employment contract that the person is looking for.",
+            "example": "permanent"
           },
           "workingTime": {
             "title": "Working time",
@@ -4931,7 +4934,8 @@
                 "$ref": "#/components/schemas/WorkingTime"
               }
             ],
-            "description": "The preferred working time that the person is looking for."
+            "description": "The preferred working time that the person is looking for.",
+            "example": "fullTime"
           },
           "workingLanguage": {
             "title": "Working language",
@@ -4939,13 +4943,14 @@
             "items": {
               "$ref": "#/components/schemas/WorkingLanguage"
             },
-            "description": "The languages that the end user is capable of using in the work."
+            "description": "The languages that the end user is capable of using in the work.",
+            "example": "en"
           }
         }
       },
       "WorkingLanguage": {
         "title": "WorkingLanguage",
-        "enum": ["English", "Finnish", "Swedish"],
+        "enum": ["en", "fi", "sv"],
         "type": "string",
         "description": "An enumeration."
       },

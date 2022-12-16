@@ -4169,14 +4169,12 @@ class CERFLevel(str, Enum):
 
 
 class SkillLevel(str, Enum):
-    # TODO: Check case of these
-    BEGINNER = "Beginner"
-    INTERMEDIATE = "Intermediate"
-    MASTER = "Master"
+    BEGINNER = "beginner"
+    INTERMEDIATE = "intermediate"
+    MASTER = "master"
 
 
 class EmploymentType(str, Enum):
-    # TODO: Check case of these
     PERMANENT = "permanent"
     TEMPORARY = "temporary"
     SEASONAL = "seasonal"
@@ -4184,17 +4182,14 @@ class EmploymentType(str, Enum):
 
 
 class WorkingTime(str, Enum):
-    # TODO: Check case of these
     FULL_TIME = "fullTime"
     PART_TIME = "partTime"
 
 
 class WorkingLanguage(str, Enum):
-    # TODO: Should we use en, fi and sv instead?
-    # TODO: Check case of these
-    ENGLISH = "English"
-    FINNISH = "Finnish"
-    SWEDISH = "Swedish"
+    EN = "en"
+    FI = "fi"
+    SV = "sv"
 
 
 class ISO_3166_2_FI(str, Enum):
@@ -4604,7 +4599,7 @@ class Education(CamelCaseModel):
     )
 
 
-class LanguageSkills(CamelCaseModel):
+class LanguageSkill(CamelCaseModel):
     esco_identifier: Optional[HttpUrl] = Field(
         None,
         title="ESCO Identifier",
@@ -4621,7 +4616,7 @@ class LanguageSkills(CamelCaseModel):
     )
 
 
-class OtherSkills(CamelCaseModel):
+class OtherSkill(CamelCaseModel):
     esco_identifier: Optional[HttpUrl] = Field(
         None,
         title="ESCO Identifier",
@@ -4643,15 +4638,15 @@ class Certification(CamelCaseModel):
         None,
         title="Certification name",
         description="The name of the acquired qualification.",
-        example="",
+        example="Hygiene passport",
         max_length=250,
     )
     qualification_type: str = Field(
         None,
         title="Qualification type",
         description="Type of qualification clarifies how the qualification has "
-        "been acquired (e.g. self-organized / institutional).",
-        example="Self-organized",
+        "been acquired (e.g. Self-organized / Institutional).",
+        example="Institutional",
         max_length=250,
     )
 
@@ -4661,15 +4656,15 @@ class Permit(CamelCaseModel):
         None,
         title="Permit name",
         description="The name of the acquired permit.",
-        example="",
+        example="Hot work permit",
         max_length=250,
     )
     permit_type: str = Field(
         None,
         title="Permit type",
         description="Type of qualification clarifies how the qualification has been "
-        "acquired (e.g. self-organized / institutional).",
-        example="Self-organized",
+        "acquired (e.g. Self-organized / Institutional).",
+        example="Institutional",
         max_length=250,
     )
 
@@ -4680,27 +4675,32 @@ class WorkPreference(CamelCaseModel):
         title="Preferred region",
         description="The potential regions in Finland that the user desired to find a "
         "job from.",
+        example=ISO_3166_2_FI.FI_18,
     )
     preferred_municipality: List[FinnishMunicipality] = Field(
         None,
         title="Preferred municipality",
         description="The potential municipalities in Finland that the user desires to "
         "find a job from.",
+        example=FinnishMunicipality.HELSINKI,
     )
     type_of_employment: EmploymentType = Field(
         None,
         title="Type of employment",
         description="The type of employment contract that the person is looking for.",
+        example=EmploymentType.PERMANENT,
     )
     working_time: WorkingTime = Field(
         None,
         title="Working time",
         description="The preferred working time that the person is looking for.",
+        example=WorkingTime.FULL_TIME,
     )
     working_language: List[WorkingLanguage] = Field(
         None,
         title="Working language",
         description="The languages that the end user is capable of using in the work.",
+        example=WorkingLanguage.EN,
     )
 
 
@@ -4711,35 +4711,35 @@ class JobApplicantProfileResponse(CamelCaseModel):
         description="The work history of a person with a list of occupations, related "
         "industry fields, employer and the duration of a specific work experience.",
     )
-    education: List[Education] = Field(
+    educations: List[Education] = Field(
         ...,
         title="Education",
         description="The education history of a person with a list of educations, "
         "education fields and the graduation date.",
     )
-    language_skills: List[LanguageSkills] = Field(
+    language_skills: List[LanguageSkill] = Field(
         ...,
         title="Language skills",
         description="List of person's language skills acquired with the earlier "
         "person's experience",
     )
-    other_skills: List[OtherSkills] = Field(
+    other_skills: List[OtherSkill] = Field(
         ...,
         title="Other skills",
         description="List of person's skills acquired with the work experience, "
         "education, certification and permits",
     )
-    certification: List[Certification] = Field(
+    certifications: List[Certification] = Field(
         ...,
         title="Certification",
         description="The certifications acquired by the person",
     )
-    permit: List[Permit] = Field(
+    permits: List[Permit] = Field(
         ...,
         title="Permit",
         description="The permits acquired by the person",
     )
-    work_preference: WorkPreference = Field(
+    work_preferences: WorkPreference = Field(
         ...,
         title="Work preference",
         description="The preferences that the person has for the work position.",
