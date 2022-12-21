@@ -4564,8 +4564,9 @@ class Education(CamelCaseModel):
     education_level: Optional[EducationLevel] = Field(
         None,
         title="Education level",
-        description="The code of the education which the person has acquired. The code levels are based on the "
-        "International Standard Classification of Education (ISCED).",
+        description="The education level which the person has acquired based on the "
+        "International Standard Classification of Education, [ISCED education codes]"
+        "(https://koodistot.suomi.fi/codescheme;registryCode=dataecon;schemeCode=educationlevel).",
         example=EducationLevel.ISCED_LEVEL_7,
     )
     education_field: Optional[EducationField] = Field(
