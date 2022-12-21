@@ -3757,7 +3757,7 @@
         "type": "object",
         "properties": {
           "escoIdentifier": {
-            "title": "ESCO Identifier",
+            "title": "ESCO identifier",
             "maxLength": 2083,
             "minLength": 1,
             "type": "string",
@@ -4805,7 +4805,7 @@
         "type": "object",
         "properties": {
           "escoIdentifier": {
-            "title": "ESCO Identifier",
+            "title": "ESCO identifier",
             "maxLength": 2083,
             "minLength": 1,
             "type": "string",

@@ -4588,7 +4588,7 @@ class Education(CamelCaseModel):
 class LanguageSkill(CamelCaseModel):
     esco_identifier: Optional[HttpUrl] = Field(
         None,
-        title="ESCO Identifier",
+        title="ESCO identifier",
         description="The languange skill identifier based on European Standard "
         "Classification of Occupations (ESCO).",
         example="http://data.europa.eu/esco/skill/6d3edede-8951-4621-a835-e04323300fa0",
@@ -4605,7 +4605,7 @@ class LanguageSkill(CamelCaseModel):
 class OtherSkill(CamelCaseModel):
     esco_identifier: Optional[HttpUrl] = Field(
         None,
-        title="ESCO Identifier",
+        title="ESCO identifier",
         description="The skill identifier based on European Standard Classification of "
         "Occupations (ESCO).",
         example="http://data.europa.eu/esco/skill/869fc2ce-478f-4420-8766-e1f02cec4fb2",
