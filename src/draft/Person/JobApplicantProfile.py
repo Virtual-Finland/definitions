@@ -4638,21 +4638,7 @@ class Certification(CamelCaseModel):
 
 
 class Permit(CamelCaseModel):
-    permit_name: str = Field(
-        None,
-        title="Permit name",
-        description="The name of the acquired permit.",
-        example="Hot work permit",
-        max_length=250,
-    )
-    permit_type: str = Field(
-        None,
-        title="Permit type",
-        description="Type of qualification clarifies how the qualification has been "
-        "acquired (e.g. Self-organized / Institutional).",
-        example="Institutional",
-        max_length=250,
-    )
+    pass
 
 
 class WorkPreference(CamelCaseModel):

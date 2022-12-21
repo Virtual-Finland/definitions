@@ -4828,22 +4828,7 @@
       "Permit": {
         "title": "Permit",
         "type": "object",
-        "properties": {
-          "permitName": {
-            "title": "Permit name",
-            "maxLength": 250,
-            "type": "string",
-            "description": "The name of the acquired permit.",
-            "example": "Hot work permit"
-          },
-          "permitType": {
-            "title": "Permit type",
-            "maxLength": 250,
-            "type": "string",
-            "description": "Type of qualification clarifies how the qualification has been acquired (e.g. Self-organized / Institutional).",
-            "example": "Institutional"
-          }
-        }
+        "properties": {}
       },
       "SkillLevel": {
         "title": "SkillLevel",
