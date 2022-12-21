@@ -4583,13 +4583,6 @@ class Education(CamelCaseModel):
         description="The date on which the specific education has been completed.",
         example=date(year=2022, month=12, day=8),
     )
-    education_organization: Optional[str] = Field(
-        None,
-        title="Education organization",
-        description="The name of the organization that provided the education.",
-        example="Institute of Technology",
-        max_length=250,
-    )
 
 
 class LanguageSkill(CamelCaseModel):
