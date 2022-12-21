@@ -4805,13 +4805,6 @@
             "type": "integer",
             "description": "The number of years that the person has experience in the specific occupation.",
             "example": 5
-          },
-          "employer": {
-            "title": "Employer",
-            "maxLength": 250,
-            "type": "string",
-            "description": "The name of the employer by which the work experience has been acquired.",
-            "example": "Corporate Ltd"
           }
         }
       },

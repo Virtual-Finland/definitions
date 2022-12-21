@@ -4559,14 +4559,6 @@ class Occupation(CamelCaseModel):
         example=5,
         le=50,
     )
-    employer: Optional[str] = Field(
-        None,
-        title="Employer",
-        description="The name of the employer by which the work experience has been "
-        "acquired.",
-        example="Corporate Ltd",
-        max_length=250,
-    )
 
 
 class Education(CamelCaseModel):
