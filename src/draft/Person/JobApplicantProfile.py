@@ -4572,8 +4572,9 @@ class Education(CamelCaseModel):
     education_field: Optional[EducationField] = Field(
         None,
         title="Education field",
-        description="The code of education field based on the International Standard "
-        "Classification of Education (ISCED).",
+        description="The education field based on the International Standard "
+        "Classification of Education, [ISCED education codes]"
+        "(https://koodistot.suomi.fi/codescheme;registryCode=jhs;schemeCode=isced_ala_1_20110101).",
         example=EducationField.ISCED_FIELD_0731,
     )
     graduation_date: Optional[date] = Field(

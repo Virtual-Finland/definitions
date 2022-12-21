@@ -130,7 +130,7 @@
                 "$ref": "#/components/schemas/EducationField"
               }
             ],
-            "description": "The code of education field based on the International Standard Classification of Education (ISCED).",
+            "description": "The education field based on the International Standard Classification of Education, [ISCED education codes](https://koodistot.suomi.fi/codescheme;registryCode=jhs;schemeCode=isced_ala_1_20110101).",
             "example": "0731"
           },
           "graduationDate": {
