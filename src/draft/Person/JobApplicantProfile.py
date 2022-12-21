@@ -4551,13 +4551,12 @@ class Occupation(CamelCaseModel):
         "European Community, abbreviated as NACE.",
         example=NaceCode.NACE_62_01,
     )
-    work_experience_in_years: Optional[int] = Field(
+    work_experience_in_months: Optional[int] = Field(
         None,
-        title="Work experience in years",
-        description="The number of years that the person has experience in the "
+        title="Work experience in months",
+        description="The number of months that the person has experience in the "
         "specific occupation.",
         example=5,
-        le=50,
     )
 
 

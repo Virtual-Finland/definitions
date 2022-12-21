@@ -4799,11 +4799,10 @@
             "description": "The industry field where the person has worked on. The codes are based on the Statistical classification of economic activities in the European Community, abbreviated as NACE.",
             "example": "62.01"
           },
-          "workExperienceInYears": {
-            "title": "Work experience in years",
-            "maximum": 50.0,
+          "workExperienceInMonths": {
+            "title": "Work experience in months",
             "type": "integer",
-            "description": "The number of years that the person has experience in the specific occupation.",
+            "description": "The number of months that the person has experience in the specific occupation.",
             "example": 5
           }
         }
