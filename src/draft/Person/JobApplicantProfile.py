@@ -4705,6 +4705,104 @@ class FinnishMunicipality(str, Enum):
     AANEKOSKI = "992"
 
 
+class Permit(str, Enum):
+    PERMIT_001 = "001"
+    PERMIT_002 = "002"
+    PERMIT_003 = "003"
+    PERMIT_004 = "004"
+    PERMIT_005 = "005"
+    PERMIT_006 = "006"
+    PERMIT_007 = "007"
+    PERMIT_008 = "008"
+    PERMIT_009 = "009"
+    PERMIT_010 = "010"
+    PERMIT_011 = "011"
+    PERMIT_012 = "012"
+    PERMIT_013 = "013"
+    PERMIT_014 = "014"
+    PERMIT_015 = "015"
+    PERMIT_016 = "016"
+    PERMIT_017 = "017"
+    PERMIT_018 = "018"
+    PERMIT_019 = "019"
+    PERMIT_020 = "020"
+    PERMIT_021 = "021"
+    PERMIT_022 = "022"
+    PERMIT_023 = "023"
+    PERMIT_024 = "024"
+    PERMIT_025 = "025"
+    PERMIT_026 = "026"
+    PERMIT_027 = "027"
+    PERMIT_028 = "028"
+    PERMIT_029 = "029"
+    PERMIT_030 = "030"
+    PERMIT_031 = "031"
+    PERMIT_032 = "032"
+    PERMIT_033 = "033"
+    PERMIT_034 = "034"
+    PERMIT_035 = "035"
+    PERMIT_036 = "036"
+    PERMIT_037 = "037"
+    PERMIT_038 = "038"
+    PERMIT_039 = "039"
+    PERMIT_040 = "040"
+    PERMIT_041 = "041"
+    PERMIT_042 = "042"
+    PERMIT_043 = "043"
+    PERMIT_044 = "044"
+    PERMIT_045 = "045"
+    PERMIT_046 = "046"
+    PERMIT_047 = "047"
+    PERMIT_048 = "048"
+    PERMIT_049 = "049"
+    PERMIT_050 = "050"
+    PERMIT_051 = "051"
+    PERMIT_052 = "052"
+    PERMIT_053 = "053"
+    PERMIT_054 = "054"
+    PERMIT_055 = "055"
+    PERMIT_056 = "056"
+    PERMIT_057 = "057"
+    PERMIT_058 = "058"
+    PERMIT_059 = "059"
+    PERMIT_060 = "060"
+    PERMIT_061 = "061"
+    PERMIT_062 = "062"
+    PERMIT_063 = "063"
+    PERMIT_064 = "064"
+    PERMIT_065 = "065"
+    PERMIT_066 = "066"
+    PERMIT_067 = "067"
+    PERMIT_068 = "068"
+    PERMIT_069 = "069"
+    PERMIT_070 = "070"
+    PERMIT_071 = "071"
+    PERMIT_072 = "072"
+    PERMIT_073 = "073"
+    PERMIT_074 = "074"
+    PERMIT_075 = "075"
+    PERMIT_076 = "076"
+    PERMIT_077 = "077"
+    PERMIT_078 = "078"
+    PERMIT_079 = "079"
+    PERMIT_080 = "080"
+    PERMIT_081 = "081"
+    PERMIT_082 = "082"
+    PERMIT_083 = "083"
+    PERMIT_084 = "084"
+    PERMIT_085 = "085"
+    PERMIT_086 = "086"
+    PERMIT_087 = "087"
+    PERMIT_088 = "088"
+    PERMIT_089 = "089"
+    PERMIT_090 = "090"
+    PERMIT_091 = "091"
+    PERMIT_092 = "092"
+    PERMIT_093 = "093"
+    PERMIT_094 = "094"
+    PERMIT_095 = "095"
+
+
 class Occupation(CamelCaseModel):
     esco_identifier: Optional[HttpUrl] = Field(
         None,
@@ -4821,10 +4919,6 @@ class Certification(CamelCaseModel):
     )
 
 
-class Permit(CamelCaseModel):
-    pass
-
-
 class WorkPreference(CamelCaseModel):
     preferred_region: List[ISO_3166_2_FI] = Field(
         None,
@@ -4894,7 +4988,10 @@ class JobApplicantProfileResponse(CamelCaseModel):
     permits: List[Permit] = Field(
         ...,
         title="Permit",
-        description="The permits acquired by the person",
+        description="The acquired permit list of a person based on the national "
+        "classification of institutional permits in Finland, [permit codes]"
+        "(https://koodistot.suomi.fi/codescheme;registryCode=dataecon;schemeCode=permit).",
+        example=Permit.PERMIT_075,
     )
     work_preferences: WorkPreference = Field(
         ...,
