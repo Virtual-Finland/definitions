@@ -4182,8 +4182,14 @@ class EmploymentType(str, Enum):
 
 
 class WorkingTime(str, Enum):
-    FULL_TIME = "fullTime"
-    PART_TIME = "partTime"
+    DAY_SHIFT = "01"
+    EVENING_SHIFT = "02"
+    NIGHT_SHIFT = "03"
+    WORK_IN_EPISODES = "04"
+    FLEXIBLE_HOURS = "05"
+    NORMAL_DAYS = "06"
+    WEEKEND_HOURS = "07"
+    WORK_IN_SHIFTS = "08"
 
 
 class ISO_639_1(str, Enum):
@@ -4940,11 +4946,12 @@ class WorkPreference(CamelCaseModel):
         description="The type of employment contract that the person is looking for.",
         example=EmploymentType.PERMANENT,
     )
-    working_time: WorkingTime = Field(
+    working_time: Optional[WorkingTime] = Field(
         None,
         title="Working time",
-        description="The preferred working time that the person is looking for.",
-        example=WorkingTime.FULL_TIME,
+        description="The preferred working time that the person is looking for based on the national "
+        "[working time codes](https://koodistot.suomi.fi/codescheme;registryCode=dataecon;schemeCode=permit).",
+        example=WorkingTime.NIGHT_SHIFT,
     )
     working_language: List[ISO_639_1] = Field(
         None,
