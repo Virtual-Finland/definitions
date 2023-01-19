@@ -5180,6 +5180,7 @@
       },
       "WorkPreference": {
         "title": "WorkPreference",
+        "required": ["preferredRegion", "preferredMunicipality", "workingLanguage"],
         "type": "object",
         "properties": {
           "preferredRegion": {

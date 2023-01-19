@@ -85,7 +85,7 @@
     "schemas": {
       "BasicInformationRequestResponse": {
         "title": "BasicInformationRequestResponse",
-        "required": ["email", "residency"],
+        "required": ["email"],
         "type": "object",
         "properties": {
           "givenName": {

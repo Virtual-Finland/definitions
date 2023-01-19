@@ -258,14 +258,14 @@ class ISO_3166_1_Alpha_3(str, Enum):
 
 
 class BasicInformationResponse(CamelCaseModel):
-    given_name: str = Field(
+    given_name: Optional[str] = Field(
         None,
         title="Given name",
         description="The first name that the person is being called by",
         example="John",
         max_length=250,
     )
-    last_name: str = Field(
+    last_name: Optional[str] = Field(
         None,
         title="Last name",
         description="The person's current family name",
@@ -278,15 +278,15 @@ class BasicInformationResponse(CamelCaseModel):
         description="The person's contact email address",
         example="john.doe@test.fi",
     )
-    phone_number: str = Field(
+    phone_number: Optional[str] = Field(
         None,
         title="Phone number",
         description="The person's phone number in the international format",
         example="+358501234567",
         max_length=250,
     )
-    residency: ISO_3166_1_Alpha_3 = Field(
-        ...,
+    residency: Optional[ISO_3166_1_Alpha_3] = Field(
+        None,
         title="Residency",
         description="The person's current country of the residency in the three character (Alpha-3) format",
         example=[ISO_3166_1_Alpha_3.USA],

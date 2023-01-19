@@ -90,7 +90,7 @@
       },
       "BasicInformationResponse": {
         "title": "BasicInformationResponse",
-        "required": ["email", "residency"],
+        "required": ["email"],
         "type": "object",
         "properties": {
           "givenName": {

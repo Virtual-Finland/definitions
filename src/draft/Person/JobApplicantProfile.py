@@ -4901,11 +4901,12 @@ class LanguageSkill(CamelCaseModel):
         example="http://data.europa.eu/esco/skill/6d3edede-8951-4621-a835-e04323300fa0",
     )
     language_code: Optional[ISO_639_1] = Field(
+        None,
         title="Language code",
         description="The language skill identifier by the ISO 639-1 standard (Alpha-2).",
         example=ISO_639_1.EN,
     )
-    skill_level: CERFLevel = Field(
+    skill_level: Optional[CERFLevel] = Field(
         None,
         title="Skill level",
         description="The language skill level according to Common European Framework "
@@ -4922,7 +4923,7 @@ class OtherSkill(CamelCaseModel):
         "Occupations (ESCO).",
         example="http://data.europa.eu/esco/skill/869fc2ce-478f-4420-8766-e1f02cec4fb2",
     )
-    skill_level: SkillLevel = Field(
+    skill_level: Optional[SkillLevel] = Field(
         None,
         title="Skill level",
         description="The language skill level according to Common European Framework "
@@ -4932,14 +4933,14 @@ class OtherSkill(CamelCaseModel):
 
 
 class Certification(CamelCaseModel):
-    certification_name: str = Field(
+    certification_name: Optional[str] = Field(
         None,
         title="Certification name",
         description="The name of the acquired qualification.",
         example="Cloud provider certification",
         max_length=250,
     )
-    qualification_type: str = Field(
+    qualification_type: Optional[str] = Field(
         None,
         title="Qualification type",
         description="Type of qualification clarifies how the qualification has "
@@ -4951,20 +4952,20 @@ class Certification(CamelCaseModel):
 
 class WorkPreference(CamelCaseModel):
     preferred_region: List[ISO_3166_2_FI] = Field(
-        None,
+        ...,
         title="Preferred region",
         description="The potential regions in Finland that the user desired to find a "
         "job from.",
         example=ISO_3166_2_FI.FI_18,
     )
     preferred_municipality: List[FinnishMunicipality] = Field(
-        None,
+        ...,
         title="Preferred municipality",
         description="The potential municipalities in Finland that the user desires to "
         "find a job from.",
         example=FinnishMunicipality.HELSINKI,
     )
-    type_of_employment: EmploymentType = Field(
+    type_of_employment: Optional[EmploymentType] = Field(
         None,
         title="Type of employment",
         description="The type of employment contract that the person is looking for.",
@@ -4978,7 +4979,7 @@ class WorkPreference(CamelCaseModel):
         example=WorkingTime.NIGHT_SHIFT,
     )
     working_language: List[ISO_639_1] = Field(
-        None,
+        ...,
         title="Working language",
         description="The preferred list of working languages identified by the "
         "ISO 639-1 standard (Alpha-2).",
