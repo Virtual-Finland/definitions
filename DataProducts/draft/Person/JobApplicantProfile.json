@@ -85,7 +85,7 @@
     "schemas": {
       "CERFLevel": {
         "title": "CERFLevel",
-        "enum": ["A1", "A2", "B1", "B2", "C1", "C2"],
+        "enum": ["native", "A1", "A2", "B1", "B2", "C1", "C2"],
         "type": "string",
         "description": "An enumeration."
       },
@@ -98,7 +98,7 @@
             "maxLength": 250,
             "type": "string",
             "description": "The name of the acquired qualification.",
-            "example": "Hygiene passport"
+            "example": "Cloud provider certification"
           },
           "qualificationType": {
             "title": "Qualification type",
@@ -113,6 +113,13 @@
         "title": "Education",
         "type": "object",
         "properties": {
+          "educationName": {
+            "title": "Education name",
+            "maxLength": 250,
+            "type": "string",
+            "description": "The name of the education completed by a person.",
+            "example": "Master of Business Administration"
+          },
           "educationLevel": {
             "title": "Education level",
             "allOf": [
@@ -139,6 +146,13 @@
             "description": "The date on which the specific education has been completed.",
             "format": "date",
             "example": "2022-12-08"
+          },
+          "institutionName": {
+            "title": "Institution name",
+            "maxLength": 250,
+            "type": "string",
+            "description": "The name of the organization that provided the education.",
+            "example": "Institute of Technology"
           }
         }
       },
@@ -4997,6 +5011,13 @@
             "type": "integer",
             "description": "The number of months that the person has experience in the specific occupation.",
             "example": 5
+          },
+          "employer": {
+            "title": "Employer",
+            "maxLength": 250,
+            "type": "string",
+            "description": "The name of the employer by which the work experience has been acquired.",
+            "example": "The name of the employer by which the work experience has been acquired."
           }
         }
       },

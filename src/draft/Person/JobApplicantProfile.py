@@ -4160,6 +4160,7 @@ class EducationField(str, Enum):
 
 
 class CERFLevel(str, Enum):
+    NATIVE = "native"
     A1 = "A1"
     A2 = "A2"
     B1 = "B1"
@@ -4841,9 +4842,25 @@ class Occupation(CamelCaseModel):
         "specific occupation.",
         example=5,
     )
+    employer: Optional[str] = Field(
+        None,
+        title="Employer",
+        description="The name of the employer by which the work experience has been "
+        "acquired.",
+        max_length=250,
+        example="The name of the employer by which the work experience has been "
+        "acquired.",
+    )
 
 
 class Education(CamelCaseModel):
+    education_name: Optional[str] = Field(
+        None,
+        title="Education name",
+        description="The name of the education completed by a person.",
+        max_length=250,
+        example="Master of Business Administration",
+    )
     education_level: Optional[EducationLevel] = Field(
         None,
         title="Education level",
@@ -4865,6 +4882,13 @@ class Education(CamelCaseModel):
         title="Graduation date",
         description="The date on which the specific education has been completed.",
         example=date(year=2022, month=12, day=8),
+    )
+    institution_name: Optional[str] = Field(
+        None,
+        title="Institution name",
+        description="The name of the organization that provided the education.",
+        max_length=250,
+        example="Institute of Technology",
     )
 
 
@@ -4912,7 +4936,7 @@ class Certification(CamelCaseModel):
         None,
         title="Certification name",
         description="The name of the acquired qualification.",
-        example="Hygiene passport",
+        example="Cloud provider certification",
         max_length=250,
     )
     qualification_type: str = Field(
