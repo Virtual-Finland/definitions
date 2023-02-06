@@ -4956,14 +4956,14 @@ class WorkPreference(CamelCaseModel):
         title="Preferred region",
         description="The potential regions in Finland that the user desired to find a "
         "job from.",
-        example=ISO_3166_2_FI.FI_18,
+        example=[ISO_3166_2_FI.FI_18],
     )
     preferred_municipality: List[FinnishMunicipality] = Field(
         ...,
         title="Preferred municipality",
         description="The potential municipalities in Finland that the user desires to "
         "find a job from.",
-        example=FinnishMunicipality.HELSINKI,
+        example=[FinnishMunicipality.HELSINKI],
     )
     type_of_employment: Optional[EmploymentType] = Field(
         None,
@@ -4983,7 +4983,7 @@ class WorkPreference(CamelCaseModel):
         title="Working language",
         description="The preferred list of working languages identified by the "
         "ISO 639-1 standard (Alpha-2).",
-        example=ISO_639_1.EN,
+        example=[ISO_639_1.EN],
     )
 
 

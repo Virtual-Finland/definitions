@@ -5190,7 +5190,7 @@
               "$ref": "#/components/schemas/ISO_3166_2_FI"
             },
             "description": "The potential regions in Finland that the user desired to find a job from.",
-            "example": "FI-18"
+            "example": ["FI-18"]
           },
           "preferredMunicipality": {
             "title": "Preferred municipality",
@@ -5199,7 +5199,7 @@
               "$ref": "#/components/schemas/FinnishMunicipality"
             },
             "description": "The potential municipalities in Finland that the user desires to find a job from.",
-            "example": "091"
+            "example": ["091"]
           },
           "typeOfEmployment": {
             "title": "Type of employment",
@@ -5228,7 +5228,7 @@
               "$ref": "#/components/schemas/ISO_639_1"
             },
             "description": "The preferred list of working languages identified by the ISO 639-1 standard (Alpha-2).",
-            "example": "en"
+            "example": ["en"]
           }
         }
       },
