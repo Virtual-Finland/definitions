@@ -4928,16 +4928,25 @@ class Certification(CamelCaseModel):
     certification_name: Optional[str] = Field(
         None,
         title="Certification name",
-        description="The name of the acquired qualification.",
+        description="The name of the acquired certification.",
         example="Cloud provider certification",
         max_length=250,
     )
-    qualification_type: Optional[str] = Field(
+    esco_identifier: List[HttpUrl] = Field(
+        ...,
+        title="List of ESCO Uris",
+        description="The identifier of the skill in which the user has qualified. The "
+        "skill identifier is based on European Standard Classification of Occupations "
+        "(ESCO).",
+        example=[
+            "http://data.europa.eu/esco/skill/b85711bc-32d6-42af-ae0f-e2e566d0dfca",
+        ],
+    )
+    institution_name: Optional[str] = Field(
         None,
-        title="Qualification type",
-        description="Type of qualification clarifies how the qualification has "
-        "been acquired (e.g. Self-organized / Institutional).",
-        example="Institutional",
+        title="Institution name",
+        description="The name of the organization that provided the certification.",
+        example="Skill Academy",
         max_length=250,
     )
 
