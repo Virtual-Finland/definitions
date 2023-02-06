@@ -3938,7 +3938,7 @@
               "$ref": "#/components/schemas/Permit"
             },
             "description": "The acquired permit list of a person based on the national classification of institutional permits in Finland, [permit codes](https://koodistot.suomi.fi/codescheme;registryCode=dataecon;schemeCode=permit).",
-            "example": "075"
+            "example": ["075"]
           },
           "workPreferences": {
             "title": "Work preference",

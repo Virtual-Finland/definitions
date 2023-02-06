@@ -5019,7 +5019,7 @@ class JobApplicantProfileRequestResponse(CamelCaseModel):
         description="The acquired permit list of a person based on the national "
         "classification of institutional permits in Finland, [permit codes]"
         "(https://koodistot.suomi.fi/codescheme;registryCode=dataecon;schemeCode=permit).",
-        example=Permit.PERMIT_075,
+        example=[Permit.PERMIT_075],
     )
     work_preferences: WorkPreference = Field(
         ...,
