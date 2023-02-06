@@ -4827,14 +4827,6 @@ class Occupation(CamelCaseModel):
         "(ESCO).",
         example=EscoCode.ESCO_2654_1_7,
     )
-    nace_code: Optional[NaceCode] = Field(
-        None,
-        title="NACE code",
-        description="The industry field where the person has worked on. The codes are "
-        "based on the Statistical classification of economic activities in the "
-        "European Community, abbreviated as NACE.",
-        example=NaceCode.NACE_62_01,
-    )
     work_experience: Optional[int] = Field(
         None,
         title="Work experience in months",
@@ -4951,6 +4943,14 @@ class Certification(CamelCaseModel):
 
 
 class WorkPreference(CamelCaseModel):
+    nace_code: Optional[NaceCode] = Field(
+        None,
+        title="NACE code",
+        description="The industry field where the person has worked on. The codes are "
+        "based on the Statistical classification of economic activities in the "
+        "European Community, abbreviated as NACE.",
+        example=NaceCode.NACE_62_01,
+    )
     preferred_region: List[ISO_3166_2_FI] = Field(
         ...,
         title="Preferred region",

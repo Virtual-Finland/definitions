@@ -4996,16 +4996,6 @@
             "description": "The code of the occupation in which the user has previously worked. The code based on European Standard Classification of Occupations (ESCO).",
             "example": "2654.1.7"
           },
-          "naceCode": {
-            "title": "NACE code",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/NaceCode"
-              }
-            ],
-            "description": "The industry field where the person has worked on. The codes are based on the Statistical classification of economic activities in the European Community, abbreviated as NACE.",
-            "example": "62.01"
-          },
           "workExperience": {
             "title": "Work experience in months",
             "type": "integer",
@@ -5188,6 +5178,16 @@
         "required": ["preferredRegion", "preferredMunicipality", "workingLanguage"],
         "type": "object",
         "properties": {
+          "naceCode": {
+            "title": "NACE code",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/NaceCode"
+              }
+            ],
+            "description": "The industry field where the person has worked on. The codes are based on the Statistical classification of economic activities in the European Community, abbreviated as NACE.",
+            "example": "62.01"
+          },
           "preferredRegion": {
             "title": "Preferred region",
             "type": "array",
