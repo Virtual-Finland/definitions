@@ -534,9 +534,8 @@ class BasicInformationResponse(CamelCaseModel):
     legal_form: NordicLegalForm = Field(
         ...,
         title="Legal form",
-        description="The [Nordic Legal Form code]"
-        "(https://koodistot.suomi.fi/codescheme;registryCode=verotus;schemeCode=LegalForm2)"
-        " for the company.",
+        description="The [Nordic Legal Form code](https://koodistot.suomi.fi/"
+        "codescheme;registryCode=verotus;schemeCode=LegalForm2) for the company.",
         example=NordicLegalForm.FI_OY,
     )
     legal_status: LegalStatus = Field(
@@ -548,7 +547,8 @@ class BasicInformationResponse(CamelCaseModel):
     registration_date: date = Field(
         ...,
         title="Registration date",
-        description="Official registration date of the legal entity in the national trade registry",
+        description="Official registration date of the legal entity in the national "
+        "trade registry",
     )
     registered_address: RegisteredAddress
 
