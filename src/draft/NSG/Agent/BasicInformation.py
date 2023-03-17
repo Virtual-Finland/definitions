@@ -1,6 +1,6 @@
 from datetime import date
 from enum import Enum
-from typing import List, Optional
+from typing import Optional
 
 from converter import CamelCaseModel, DataProductDefinition
 from pydantic import Field

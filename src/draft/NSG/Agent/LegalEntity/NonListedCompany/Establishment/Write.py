@@ -3,7 +3,7 @@ from enum import Enum
 from typing import List, Optional
 
 from converter import CamelCaseModel, DataProductDefinition
-from pydantic import EmailStr, Field, HttpUrl
+from pydantic import EmailStr, Field
 
 
 class IndustrySector(str, Enum):
