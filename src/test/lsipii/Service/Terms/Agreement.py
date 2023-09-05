@@ -48,6 +48,7 @@ class AgreementResponse(CamelCaseModel):
         example=False,
     )
 
+
 DEFINITION = DataProductDefinition(
     summary="Data product for the user's terms of service agreement",
     request=AgreementRequest,
