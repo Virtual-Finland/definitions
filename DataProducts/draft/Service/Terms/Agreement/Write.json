@@ -1,15 +1,15 @@
 {
   "openapi": "3.0.2",
   "info": {
-    "title": "Update the user's terms of service agreement",
-    "description": "Data product for updating the user's terms of service agreement",
+    "title": "Write Terms of Service Agreement",
+    "description": "Update the service user's agreement to the terms of service.",
     "version": "1.0.0"
   },
   "paths": {
     "/draft/Service/Terms/Agreement/Write": {
       "post": {
-        "summary": "Update the user's terms of service agreement",
-        "description": "Data product for updating the user's terms of service agreement",
+        "summary": "Write Terms of Service Agreement",
+        "description": "Update the service user's agreement to the terms of service.",
         "operationId": "request_draft_Service_Terms_Agreement_Write",
         "parameters": [
           {
@@ -181,13 +181,13 @@
           "accepted": {
             "title": "Accepted",
             "type": "boolean",
-            "description": "Whether the user has accepted the terms of service",
-            "example": false
+            "description": "Whether the service user has accepted the terms of service.",
+            "example": true
           },
           "version": {
             "title": "Version",
             "type": "string",
-            "description": "Version of the terms of service",
+            "description": "Version of the terms of service.",
             "example": "1.0"
           }
         }
@@ -205,40 +205,43 @@
         "properties": {
           "termsOfServiceUrl": {
             "title": "Terms of service URL",
+            "maxLength": 2083,
+            "minLength": 1,
             "type": "string",
-            "description": "Link to the terms of service",
+            "description": "URL to the terms of service contents.",
+            "format": "uri",
             "example": "https://example.com/terms-of-service-v1.0"
           },
           "description": {
             "title": "Description",
             "type": "string",
             "description": "Description of the terms of service",
-            "example": "This is the terms of service for the example service"
+            "example": "This is the terms of service for the example service."
           },
           "version": {
             "title": "Version",
             "type": "string",
-            "description": "Version of the terms of service",
+            "description": "Version of the terms of service.",
             "example": "1.0"
           },
           "accepted": {
             "title": "Accepted",
             "type": "boolean",
-            "description": "Whether the user has accepted the terms of service",
+            "description": "Whether the service user has accepted the terms of service.",
             "example": false
           },
           "acceptedAt": {
-            "title": "Datetime the terms of service was accepted at",
+            "title": "Accepted at",
             "type": "string",
-            "description": "A datetime in RFC3339 date-time syntax",
+            "description": "When the terms of service was accepted in RFC3339 date-time format. If the service user has not accepted the terms of service, this field is null.",
             "format": "date-time",
             "nullable": true,
-            "example": "2022-06-17T11:52:00Z"
+            "example": "2023-09-13T11:52:00Z"
           },
           "acceptedPreviousVersion": {
             "title": "Accepted previous version",
             "type": "boolean",
-            "description": "Whether the user has accepted the previous version of the terms of service",
+            "description": "Whether the service user has accepted the previous version of the terms of service.",
             "example": false
           }
         }
