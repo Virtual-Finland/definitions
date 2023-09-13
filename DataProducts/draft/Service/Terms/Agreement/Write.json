@@ -6,11 +6,11 @@
     "version": "1.0.0"
   },
   "paths": {
-    "/test/lsipii/Service/Terms/Agreement/Write": {
+    "/draft/Service/Terms/Agreement/Write": {
       "post": {
         "summary": "Update the user's terms of service agreement",
         "description": "Data product for updating the user's terms of service agreement",
-        "operationId": "request_test_lsipii_Service_Terms_Agreement_Write",
+        "operationId": "request_draft_Service_Terms_Agreement_Write",
         "parameters": [
           {
             "description": "Optional consent token",
