@@ -180,16 +180,53 @@
       },
       "AgreementResponse": {
         "title": "AgreementResponse",
-        "required": [
-          "termsOfServiceUrl",
-          "description",
-          "version",
-          "accepted",
-          "acceptedPreviousVersion"
-        ],
+        "required": ["currentTerms", "acceptedVersion", "hasAcceptedLatest"],
         "type": "object",
         "properties": {
-          "termsOfServiceUrl": {
+          "currentTerms": {
+            "title": "Current terms",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/CurrentTerms"
+              }
+            ],
+            "description": "The current terms of service."
+          },
+          "acceptedVersion": {
+            "title": "Accepted version",
+            "type": "string",
+            "description": "The version the service user has accepted. If the service user has not accepted any version of the terms of service, this field is null.",
+            "nullable": true,
+            "example": false
+          },
+          "acceptedAt": {
+            "title": "Accepted at",
+            "type": "string",
+            "description": "When the terms of service was accepted in RFC3339 date-time format. If the service user has not accepted any version of the terms of service, this field is null.",
+            "format": "date-time",
+            "nullable": true,
+            "example": "2023-09-13T11:52:00Z"
+          },
+          "hasAcceptedLatest": {
+            "title": "Has accepted the latest version",
+            "type": "boolean",
+            "description": "Whether the service user has accepted the latest version of the terms of service.",
+            "example": false
+          }
+        }
+      },
+      "BadGateway": {
+        "title": "BadGateway",
+        "type": "object",
+        "properties": {},
+        "description": "This response is reserved by Product Gateway."
+      },
+      "CurrentTerms": {
+        "title": "CurrentTerms",
+        "required": ["url", "description", "version"],
+        "type": "object",
+        "properties": {
+          "url": {
             "title": "Terms of service URL",
             "maxLength": 2083,
             "minLength": 1,
@@ -209,34 +246,8 @@
             "type": "string",
             "description": "Version of the terms of service.",
             "example": "1.0"
-          },
-          "accepted": {
-            "title": "Accepted",
-            "type": "boolean",
-            "description": "Whether the service user has accepted the terms of service.",
-            "example": false
-          },
-          "acceptedAt": {
-            "title": "Accepted at",
-            "type": "string",
-            "description": "When the terms of service was accepted in RFC3339 date-time format. If the service user has not accepted the terms of service, this field is null.",
-            "format": "date-time",
-            "nullable": true,
-            "example": "2023-09-13T11:52:00Z"
-          },
-          "acceptedPreviousVersion": {
-            "title": "Accepted previous version",
-            "type": "boolean",
-            "description": "Whether the service user has accepted the previous version of the terms of service.",
-            "example": false
           }
         }
-      },
-      "BadGateway": {
-        "title": "BadGateway",
-        "type": "object",
-        "properties": {},
-        "description": "This response is reserved by Product Gateway."
       },
       "DataSourceError": {
         "title": "DataSourceError",
