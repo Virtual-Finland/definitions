@@ -3,7 +3,7 @@
   "info": {
     "title": "Write Terms of Service Agreement",
     "description": "Update the service user's agreement to the terms of service.",
-    "version": "1.0.0"
+    "version": "0.1.0"
   },
   "paths": {
     "/Service/Terms/Agreement/Write_v0.1": {

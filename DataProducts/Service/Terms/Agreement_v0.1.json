@@ -3,7 +3,7 @@
   "info": {
     "title": "Terms of Service Agreement",
     "description": "The current terms of service and the service user's agreement to them.",
-    "version": "1.0.0"
+    "version": "0.1.0"
   },
   "paths": {
     "/Service/Terms/Agreement_v0.1": {
