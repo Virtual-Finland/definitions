@@ -61,6 +61,7 @@ class AgreementResponse(CamelCaseModel):
 
 
 DEFINITION = DataProductDefinition(
+    version="0.1.0",
     title="Write Terms of Service Agreement",
     description="Update the service user's agreement to the terms of service.",
     request=AgreementRequest,

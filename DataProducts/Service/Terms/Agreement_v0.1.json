@@ -6,11 +6,11 @@
     "version": "1.0.0"
   },
   "paths": {
-    "/draft/Service/Terms/Agreement": {
+    "/Service/Terms/Agreement_v0.1": {
       "post": {
         "summary": "Terms of Service Agreement",
         "description": "The current terms of service and the service user's agreement to them.",
-        "operationId": "request_draft_Service_Terms_Agreement",
+        "operationId": "request_Service_Terms_Agreement_v0_1",
         "parameters": [
           {
             "description": "Optional consent token",

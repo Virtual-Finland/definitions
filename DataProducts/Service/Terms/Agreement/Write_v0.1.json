@@ -6,11 +6,11 @@
     "version": "1.0.0"
   },
   "paths": {
-    "/draft/Service/Terms/Agreement/Write": {
+    "/Service/Terms/Agreement/Write_v0.1": {
       "post": {
         "summary": "Write Terms of Service Agreement",
         "description": "Update the service user's agreement to the terms of service.",
-        "operationId": "request_draft_Service_Terms_Agreement_Write",
+        "operationId": "request_Service_Terms_Agreement_Write_v0_1",
         "parameters": [
           {
             "description": "Optional consent token",
