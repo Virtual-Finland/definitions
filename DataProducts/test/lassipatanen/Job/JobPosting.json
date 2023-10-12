@@ -197,7 +197,8 @@
           "workTimeType": {
             "title": "Work time type",
             "type": "string",
-            "description": "01 - Full time, 02 - Part time"
+            "description": "<pre>01 = Full time\n02 = Part time</pre>",
+            "example": "01"
           }
         }
       },
@@ -351,7 +352,7 @@
           "applicationUrl": {
             "title": "Application URL",
             "type": "string",
-            "description": "Application URL"
+            "description": "Link to external application page"
           }
         }
       },
@@ -380,7 +381,8 @@
                 "$ref": "#/components/schemas/Requirement"
               }
             ],
-            "description": "Requirements for the job posting"
+            "description": "Requirements for the job posting",
+            "example": "http://data.europa.eu/esco/occupation/8d3e8aaa-791b-4c75-a465-f3f827028f50"
           },
           "paging": {
             "title": "Paging",
@@ -409,7 +411,8 @@
           "totalCount": {
             "title": "Total count",
             "type": "integer",
-            "description": "Total count of job postings"
+            "description": "Total count of job postings",
+            "example": 1
           }
         }
       },
@@ -423,7 +426,8 @@
             "items": {
               "type": "string"
             },
-            "description": "Country codes of the location as the numeric codes according to ISO 3166"
+            "description": "Country codes of the location as the numeric codes according to ISO 3166",
+            "example": ["FI"]
           },
           "regions": {
             "title": "Regions",
@@ -431,7 +435,8 @@
             "items": {
               "type": "string"
             },
-            "description": "The numeric codes according to Statistics Finland's classification of Regions 2022 are used as the code for the region data"
+            "description": "The numeric codes according to Statistics Finland's classification of Regions 2022 are used as the code for the region data",
+            "example": ["09"]
           },
           "municipalities": {
             "title": "Municipalities",
@@ -439,7 +444,8 @@
             "items": {
               "type": "string"
             },
-            "description": "The code of the municipality of location data is the numerical codes of municipalities according to Statistics Finland's municipalities 2022 classification"
+            "description": "The code of the municipality of location data is the numerical codes of municipalities according to Statistics Finland's municipalities 2022 classification",
+            "example": ["405"]
           }
         }
       },
@@ -486,7 +492,10 @@
             "items": {
               "type": "string"
             },
-            "description": "Professions being sought. The occupation codes used are in an URL format according to ESCO 1.1.0"
+            "description": "Professions being sought. The occupation codes used are in an URL format according to ESCO 1.1.0",
+            "example": [
+              "http://data.europa.eu/esco/occupation/8d3e8aaa-791b-4c75-a465-f3f827028f50"
+            ]
           },
           "skills": {
             "title": "Skills",
@@ -494,7 +503,10 @@
             "items": {
               "type": "string"
             },
-            "description": "Areas of expertise being sought. The codes for skills are in an URL format according to ESCO 1.1.0"
+            "description": "Areas of expertise being sought. The codes for skills are in an URL format according to ESCO 1.1.0",
+            "example": [
+              "http://data.europa.eu/esco/skill/a17286c5-238d-4f0b-bc24-29e9121345de"
+            ]
           }
         }
       },

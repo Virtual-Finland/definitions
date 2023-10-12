@@ -31,13 +31,17 @@ class Requirement(CamelCaseModel):
         None,
         title="Occupations",
         description="Professions being sought. The occupation codes used are in an URL format according to ESCO 1.1.0",
-        example=["http://data.europa.eu/esco/occupation/8d3e8aaa-791b-4c75-a465-f3f827028f50"],
+        example=[
+            "http://data.europa.eu/esco/occupation/8d3e8aaa-791b-4c75-a465-f3f827028f50"
+        ],
     )
     skills: Optional[List[str]] = Field(
         None,
         title="Skills",
         description="Areas of expertise being sought. The codes for skills are in an URL format according to ESCO 1.1.0",
-        example=["http://data.europa.eu/esco/skill/a17286c5-238d-4f0b-bc24-29e9121345de"],
+        example=[
+            "http://data.europa.eu/esco/skill/a17286c5-238d-4f0b-bc24-29e9121345de"
+        ],
     )
 
 
@@ -88,8 +92,8 @@ class JobPostingRequest(CamelCaseModel):
         None, title="Location", description="Location to search jobs in"
     )
     requirements: Optional[Requirement] = Field(
-        None, 
-        title="Requirements", 
+        None,
+        title="Requirements",
         description="Requirements for the job posting",
         example="http://data.europa.eu/esco/occupation/8d3e8aaa-791b-4c75-a465-f3f827028f50",
     )
