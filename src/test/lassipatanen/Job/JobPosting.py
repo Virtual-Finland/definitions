@@ -10,16 +10,19 @@ class Location(CamelCaseModel):
         None,
         title="Countries",
         description="Country codes of the location as the numeric codes according to ISO 3166",
+        example=["FI"],
     )
     regions: Optional[List[str]] = Field(
         None,
         title="Regions",
         description="The numeric codes according to Statistics Finland's classification of Regions 2022 are used as the code for the region data",
+        example=["09"],
     )
     municipalities: Optional[List[str]] = Field(
         None,
         title="Municipalities",
         description="The code of the municipality of location data is the numerical codes of municipalities according to Statistics Finland's municipalities 2022 classification",
+        example=["405"],
     )
 
 
@@ -28,11 +31,13 @@ class Requirement(CamelCaseModel):
         None,
         title="Occupations",
         description="Professions being sought. The occupation codes used are in an URL format according to ESCO 1.1.0",
+        example=["http://data.europa.eu/esco/occupation/8d3e8aaa-791b-4c75-a465-f3f827028f50"],
     )
     skills: Optional[List[str]] = Field(
         None,
         title="Skills",
         description="Areas of expertise being sought. The codes for skills are in an URL format according to ESCO 1.1.0",
+        example=["http://data.europa.eu/esco/skill/a17286c5-238d-4f0b-bc24-29e9121345de"],
     )
 
 
@@ -68,7 +73,8 @@ class BasicInfo(CamelCaseModel):
     work_time_type: Optional[str] = Field(
         None,
         title="Work time type",
-        description="01 - Full time, 02 - Part time",
+        description="<pre>01 = Full time\n02 = Part time</pre>",
+        example="01",
     )
 
 
@@ -82,7 +88,10 @@ class JobPostingRequest(CamelCaseModel):
         None, title="Location", description="Location to search jobs in"
     )
     requirements: Optional[Requirement] = Field(
-        None, title="Requirements", description="Requirements for the job posting"
+        None, 
+        title="Requirements", 
+        description="Requirements for the job posting",
+        example="http://data.europa.eu/esco/occupation/8d3e8aaa-791b-4c75-a465-f3f827028f50",
     )
     paging: Optional[Paging] = Field(
         None,
@@ -112,7 +121,7 @@ class JobPosting(CamelCaseModel):
         None, title="Application end date", description="Last date to apply for the job"
     )
     application_url: Optional[str] = Field(
-        None, title="Application URL", description="Application URL"
+        None, title="Application URL", description="Link to external application page"
     )
 
 
@@ -124,6 +133,7 @@ class JobPostingResponse(CamelCaseModel):
         ...,
         title="Total count",
         description="Total count of job postings",
+        example=1,
     )
 
 
