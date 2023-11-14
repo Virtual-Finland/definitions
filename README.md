@@ -19,7 +19,7 @@ format in this repository, you can check these resources:
 # Repo structure
 
 - [./src](./src) - Definition sources in python format
-- [./DataProducts](./DataProducts) - Final Definitions as OpenAPI 3.0 specs
+- [./DataProducts](./DataProducts) - Final Definitions as OpenAPI 3.x specs
 - [.github/workflows](.github/workflows) - Pre-configured CI workflows for validating
   and converting definitions from sources
 
@@ -46,7 +46,7 @@ Each python file located in the `src` folder is treated as a Data Product defini
 For example, `src/AirQuality/Current_v1.0.py` defines the `AirQuality/Current_v1.0` data
 product.
 
-These files are then converted to OpenAPI 3.0 specs, which are final forms of
+These files are then converted to OpenAPI 3.x specs, which are final forms of
 definitions. To make the converter work correctly, each file must follow the same
 structure:
 
