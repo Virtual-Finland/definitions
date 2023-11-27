@@ -4,7 +4,7 @@ from typing import List, Optional
 from definition_tooling.converter import CamelCaseModel, DataProductDefinition
 from pydantic import Field, HttpUrl, constr
 
-EscoCode = constr(pattern=r"^[0-9]{1,3}$|^[0-9]{4}(\.(?:([1-9]|[1-9][0-9]))){0,4}$")
+EscoCode = constr(pattern=r"^[0-9]{4}(\.(?:([1-9]|[1-9][0-9]))){0,4}$")
 
 
 class FinnishMunicipality(str, Enum):
@@ -445,7 +445,7 @@ class ForeignerJobRecommendationsResponse(CamelCaseModel):
 
 
 DEFINITION = DataProductDefinition(
-    version="1.0.2",
+    version="1.0.1",
     title="Foreigner Job Recommendations",
     description="Returns the list of jobs recommended for the foreigner based on e.g. "
     "the citizenship area and previous occupations based on the European Standard "
