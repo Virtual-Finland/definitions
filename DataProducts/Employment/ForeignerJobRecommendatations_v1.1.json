@@ -3,7 +3,7 @@
   "info": {
     "title": "Foreigner Job Recommendations",
     "description": "Returns the list of jobs recommended for the foreigner based on e.g. the citizenship area and previous occupations based on the European Standard Classification of Occupations (ESCO) version 1.1.1",
-    "version": "1.1.0"
+    "version": "1.1.1"
   },
   "paths": {
     "/Employment/ForeignerJobRecommendatations_v1.1": {
@@ -11,6 +11,7 @@
         "summary": "Foreigner Job Recommendations",
         "description": "Returns the list of jobs recommended for the foreigner based on e.g. the citizenship area and previous occupations based on the European Standard Classification of Occupations (ESCO) version 1.1.1",
         "operationId": "request_Employment_ForeignerJobRecommendatations_v1_1",
+        "deprecated": true,
         "parameters": [
           {
             "name": "x-consent-token",
@@ -780,7 +781,7 @@
               }
             ],
             "title": "Municipality Code",
-            "description": "The location of the advertised job ",
+            "description": "The location of the advertised job",
             "examples": ["091"]
           },
           "employer": {

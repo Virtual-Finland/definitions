@@ -413,7 +413,7 @@ class Job(CamelCaseModel):
     municipality_code: FinnishMunicipality = Field(
         ...,
         title="Municipality Code",
-        description="The location of the advertised job ",
+        description="The location of the advertised job",
         examples=[FinnishMunicipality.HELSINKI],
     )
     employer: Employer = Field(
@@ -445,7 +445,7 @@ class ForeignerJobRecommendationsResponse(CamelCaseModel):
 
 
 DEFINITION = DataProductDefinition(
-    version="1.0.1",
+    version="1.0.2",
     deprecated=True,
     title="Foreigner Job Recommendations",
     description="Returns the list of jobs recommended for the foreigner based on e.g. "

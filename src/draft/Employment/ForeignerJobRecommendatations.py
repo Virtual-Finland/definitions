@@ -3422,7 +3422,7 @@ class Job(CamelCaseModel):
     municipality_code: FinnishMunicipality = Field(
         ...,
         title="Municipality Code",
-        description="The location of the advertised job ",
+        description="The location of the advertised job",
         examples=[FinnishMunicipality.HELSINKI],
     )
     employer: Employer = Field(
