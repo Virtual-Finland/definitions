@@ -3,15 +3,14 @@
   "info": {
     "title": "Foreigner Job Recommendations",
     "description": "Returns the list of jobs recommended for the foreigner based on e.g. the citizenship area and previous occupations based on the European Standard Classification of Occupations (ESCO) version 1.1.1",
-    "version": "1.0.2"
+    "version": "1.2.0"
   },
   "paths": {
-    "/Employment/ForeignerJobRecommendatations_v1.0": {
+    "/Employment/ForeignerJobRecommendatations_v1.2": {
       "post": {
         "summary": "Foreigner Job Recommendations",
         "description": "Returns the list of jobs recommended for the foreigner based on e.g. the citizenship area and previous occupations based on the European Standard Classification of Occupations (ESCO) version 1.1.1",
-        "operationId": "request_Employment_ForeignerJobRecommendatations_v1_0",
-        "deprecated": true,
+        "operationId": "request_Employment_ForeignerJobRecommendatations_v1_2",
         "parameters": [
           {
             "name": "x-consent-token",
@@ -608,7 +607,7 @@
               {
                 "items": {
                   "type": "string",
-                  "pattern": "^[0-9]{4}(\\.(?:([1-9]|[1-9][0-9]))){0,4}$"
+                  "pattern": "^[0-9]{1,3}$|^[0-9]{4}(\\.(?:([1-9]|[1-9][0-9]))){0,4}$"
                 },
                 "type": "array"
               },
@@ -775,9 +774,12 @@
             "examples": ["https://jobadvertisement.example.com/ad123"]
           },
           "municipalityCode": {
-            "allOf": [
+            "anyOf": [
               {
                 "$ref": "#/components/schemas/FinnishMunicipality"
+              },
+              {
+                "type": "null"
               }
             ],
             "title": "Municipality Code",
@@ -794,13 +796,7 @@
           }
         },
         "type": "object",
-        "required": [
-          "title",
-          "score",
-          "advertisementURL",
-          "municipalityCode",
-          "employer"
-        ],
+        "required": ["title", "score", "advertisementURL", "employer"],
         "title": "Job"
       },
       "NotFound": {
