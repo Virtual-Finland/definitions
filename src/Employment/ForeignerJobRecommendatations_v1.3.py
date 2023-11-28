@@ -378,8 +378,8 @@ class Employer(CamelCaseModel):
         max_length=250,
         examples=["Company Oy"],
     )
-    logo_url: HttpUrl = Field(
-        ...,
+    logo_url: Optional[HttpUrl] = Field(
+        None,
         alias="logoURL",
         title="Logo URL",
         description="The image URL of the employer logo",
@@ -445,8 +445,7 @@ class ForeignerJobRecommendationsResponse(CamelCaseModel):
 
 
 DEFINITION = DataProductDefinition(
-    version="1.2.0",
-    deprecated=True,
+    version="1.3.0",
     title="Foreigner Job Recommendations",
     description="Returns the list of jobs recommended for the foreigner based on e.g. "
     "the citizenship area and previous occupations based on the European Standard "
