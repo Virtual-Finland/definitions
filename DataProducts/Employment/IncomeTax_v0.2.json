@@ -3,15 +3,14 @@
   "info": {
     "title": "Employment Income Tax",
     "description": "Tax withholding details of a person's income",
-    "version": "0.1.0"
+    "version": "0.2.0"
   },
   "paths": {
-    "/Employment/IncomeTax_v0.1": {
+    "/Employment/IncomeTax_v0.2": {
       "post": {
         "summary": "Employment Income Tax",
         "description": "Tax withholding details of a person's income",
-        "operationId": "request_Employment_IncomeTax_v0_1",
-        "deprecated": true,
+        "operationId": "request_Employment_IncomeTax_v0_2",
         "parameters": [
           {
             "name": "x-consent-token",
@@ -301,20 +300,24 @@
           },
           "withholdingPercentage": {
             "type": "number",
+            "maximum": 1.0,
+            "exclusiveMinimum": 0.0,
             "title": "Tax Percentage",
-            "description": "The primary withholding percentage of the income",
+            "description": "The primary withholding ratio of the income",
             "examples": [0.18]
           },
           "incomeLimit": {
             "type": "number",
             "title": "Income Limit",
-            "description": "The income limit for the use of withholding percentage in euros",
+            "description": "The income limit for the use of primary withholding ratio in euros",
             "examples": [40000]
           },
           "additionalPercentage": {
             "type": "number",
+            "maximum": 1.0,
+            "exclusiveMinimum": 0.0,
             "title": "Additional Percentage",
-            "description": "The secondary withholding percentage of the income",
+            "description": "The secondary withholding ratio of the income",
             "examples": [0.45]
           },
           "validityDate": {

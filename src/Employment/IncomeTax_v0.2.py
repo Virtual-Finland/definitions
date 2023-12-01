@@ -3,7 +3,7 @@ from datetime import date
 from enum import Enum
 
 from definition_tooling.converter import CamelCaseModel, DataProductDefinition
-from pydantic import Field
+from pydantic import Field, confloat
 
 
 class IncomeTaxRequest(CamelCaseModel):
@@ -22,22 +22,23 @@ class IncomeTaxResponse(CamelCaseModel):
         description="The type of the tax liability of a person",
         examples=[TaxPayerType.RESIDENT, TaxPayerType.NON_RESIDENT],
     )
-    withholding_percentage: float = Field(
+    withholding_percentage: confloat(gt=0.0, le=1.0) = Field(
         ...,
         title="Tax Percentage",
-        description="The primary withholding percentage of the income",
+        description="The primary withholding ratio of the income",
         examples=[0.18],
     )
     income_limit: float = Field(
         ...,
         title="Income Limit",
-        description="The income limit for the use of withholding percentage in euros",
+        description="The income limit for the use of primary withholding ratio in "
+        "euros",
         examples=[40000],
     )
-    additional_percentage: float = Field(
+    additional_percentage: confloat(gt=0.0, le=1.0) = Field(
         ...,
         title="Additional Percentage",
-        description="The secondary withholding percentage of the income",
+        description="The secondary withholding ratio of the income",
         examples=[0.45],
     )
     validity_date: date = Field(
@@ -49,8 +50,7 @@ class IncomeTaxResponse(CamelCaseModel):
 
 
 DEFINITION = DataProductDefinition(
-    version="0.1.0",
-    deprecated=True,
+    version="0.2.0",
     title="Employment Income Tax",
     description="Tax withholding details of a person's income",
     request=IncomeTaxRequest,
