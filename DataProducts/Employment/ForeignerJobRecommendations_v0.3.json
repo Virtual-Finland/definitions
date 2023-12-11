@@ -3,15 +3,14 @@
   "info": {
     "title": "Foreigner Job Recommendations",
     "description": "Returns the list of jobs recommended for the foreigner based on e.g. the citizenship area and previous occupations based on the European Standard Classification of Occupations (ESCO) version 1.1.1",
-    "version": "0.2.0"
+    "version": "0.3.0"
   },
   "paths": {
-    "/Employment/ForeignerJobRecommendations_v0.2": {
+    "/Employment/ForeignerJobRecommendations_v0.3": {
       "post": {
         "summary": "Foreigner Job Recommendations",
         "description": "Returns the list of jobs recommended for the foreigner based on e.g. the citizenship area and previous occupations based on the European Standard Classification of Occupations (ESCO) version 1.1.1",
-        "operationId": "request_Employment_ForeignerJobRecommendations_v0_2",
-        "deprecated": true,
+        "operationId": "request_Employment_ForeignerJobRecommendations_v0_3",
         "parameters": [
           {
             "name": "x-consent-token",
@@ -718,15 +717,15 @@
             "title": "Jobs",
             "description": "The list of jobs recommended for the foreigner based on the input properties"
           },
-          "totalCount": {
+          "totalJobs": {
             "type": "integer",
-            "title": "Total Count",
+            "title": "Total Jobs",
             "description": "The total count of job recommendations",
             "examples": [47]
           }
         },
         "type": "object",
-        "required": ["identifier", "jobs", "totalCount"],
+        "required": ["identifier", "jobs", "totalJobs"],
         "title": "ForeignerJobRecommendationsResponse"
       },
       "GatewayTimeout": {
