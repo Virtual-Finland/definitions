@@ -434,19 +434,19 @@ class ForeignerJobRecommendationsResponse(CamelCaseModel):
         ...,
         title="Jobs",
         description="The list of jobs recommended for the foreigner based on the input "
-        "properties",
+        "properties. In case of no input filters this field will have an empty list "
+        "and the total jobs field will show the total count.",
     )
-    total_count: int = Field(
+    total_jobs: int = Field(
         ...,
-        title="Total Count",
+        title="Total Jobs",
         description="The total count of job recommendations",
         examples=[47],
     )
 
 
 DEFINITION = DataProductDefinition(
-    version="0.2.0",
-    deprecated=True,
+    version="0.3.0",
     title="Foreigner Job Recommendations",
     description="Returns the list of jobs recommended for the foreigner based on e.g. "
     "the citizenship area and previous occupations based on the European Standard "
