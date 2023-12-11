@@ -434,7 +434,8 @@ class ForeignerJobRecommendationsResponse(CamelCaseModel):
         ...,
         title="Jobs",
         description="The list of jobs recommended for the foreigner based on the input "
-        "properties",
+        "properties. In case of no input filters this field will have an empty list "
+        "and the total jobs field will show the total count.",
     )
     total_jobs: int = Field(
         ...,
