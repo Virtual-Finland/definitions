@@ -331,6 +331,7 @@ class WorkContractResponse(CamelCaseModel):
 
 DEFINITION = DataProductDefinition(
     version="0.1.0",
+    deprecated=True,
     title="Employment Work Contract",
     description="Contents of a work contract",
     request=WorkContractRequest,

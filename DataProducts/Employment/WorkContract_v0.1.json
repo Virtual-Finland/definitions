@@ -11,6 +11,7 @@
         "summary": "Employment Work Contract",
         "description": "Contents of a work contract",
         "operationId": "request_Employment_WorkContract_v0_1",
+        "deprecated": true,
         "parameters": [
           {
             "name": "x-consent-token",
