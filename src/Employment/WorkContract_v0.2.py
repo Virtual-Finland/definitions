@@ -71,15 +71,15 @@ class EmployeeInfo(CamelCaseModel):
         description="The street name of the employee contact address",
         examples=["49 Featherstone Street"],
     )
-    postal_code: str = Field(
-        ...,
+    postal_code: Optional[str] = Field(
+        None,
         title="Postal Code",
         max_length=10,
         description="The postal code of the employee address",
         examples=["EC1Y 8SY"],
     )
-    city: str = Field(
-        ...,
+    city: Optional[str] = Field(
+        None,
         title="City",
         max_length=40,
         description="The city of the employee address",
@@ -121,12 +121,12 @@ class TermsOfWork(CamelCaseModel):
         description="The reasoning if the contract is fixed term",
         examples=["The winter time tourism in Lapland"],
     )
-    work_duties: str = Field(
+    job_title: str = Field(
         ...,
-        title="Work Duties",
-        max_length=400,
-        description="The work duties of the employee",
-        examples=["Hotel guest reception"],
+        title="Job Title",
+        max_length=250,
+        description="The job title of the employee",
+        examples=["Receptionist"],
     )
     work_conditions: Optional[str] = Field(
         None,
@@ -162,13 +162,6 @@ class TermsOfWork(CamelCaseModel):
         max_length=250,
         description="The name of the applicable collective agreement",
         examples=["The collective agreement for Employment industry (HELA)"],
-    )
-    overtime_rules: str = Field(
-        ...,
-        title="Overtime Rules",
-        max_length=400,
-        description="The terms for the overtime work and compensation",
-        examples=["For overtime work you receive 25 € per overtime hour"],
     )
     probation: str = Field(
         ...,
@@ -206,8 +199,8 @@ class Compensation(CamelCaseModel):
         examples=["No additional bonuses"],
         max_length=250,
     )
-    payment_time: str = Field(
-        ...,
+    payment_time: Optional[str] = Field(
+        None,
         title="Payment Time",
         description="The conditions for paying the salary",
         examples=["The 15th of every month"],
@@ -335,6 +328,6 @@ DEFINITION = DataProductDefinition(
     description="Contents of a work contract",
     request=WorkContractRequest,
     response=WorkContractResponse,
-    requires_authorization=True,
-    requires_consent=True,
+    requires_authorization=False,
+    requires_consent=False,
 )

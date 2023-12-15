@@ -15,21 +15,23 @@
           {
             "name": "x-consent-token",
             "in": "header",
-            "required": true,
+            "required": false,
             "schema": {
               "type": "string",
-              "description": "Consent token",
+              "description": "Optional consent token",
+              "default": "",
               "title": "X-Consent-Token"
             },
-            "description": "Consent token"
+            "description": "Optional consent token"
           },
           {
             "name": "authorization",
             "in": "header",
-            "required": true,
+            "required": false,
             "schema": {
               "type": "string",
               "description": "The login token. Value should be \"Bearer [token]\"",
+              "default": "",
               "title": "Authorization"
             },
             "description": "The login token. Value should be \"Bearer [token]\""
@@ -274,15 +276,22 @@
             "examples": ["No additional bonuses"]
           },
           "paymentTime": {
-            "type": "string",
-            "maxLength": 250,
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 250
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Payment Time",
             "description": "The conditions for paying the salary",
             "examples": ["The 15th of every month"]
           }
         },
         "type": "object",
-        "required": ["paymentGrounds", "salary", "paymentTime"],
+        "required": ["paymentGrounds", "salary"],
         "title": "Compensation"
       },
       "DataSourceError": {
@@ -355,15 +364,29 @@
             "examples": ["49 Featherstone Street"]
           },
           "postalCode": {
-            "type": "string",
-            "maxLength": 10,
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 10
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Postal Code",
             "description": "The postal code of the employee address",
             "examples": ["EC1Y 8SY"]
           },
           "city": {
-            "type": "string",
-            "maxLength": 40,
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 40
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "City",
             "description": "The city of the employee address",
             "examples": ["London"]
@@ -392,7 +415,7 @@
           }
         },
         "type": "object",
-        "required": ["name", "streetAddress", "postalCode", "city", "signatureDate"],
+        "required": ["name", "streetAddress", "signatureDate"],
         "title": "EmployeeInfo"
       },
       "EmployerInfo": {
@@ -621,12 +644,12 @@
             "description": "The reasoning if the contract is fixed term",
             "examples": ["The winter time tourism in Lapland"]
           },
-          "workDuties": {
+          "jobTitle": {
             "type": "string",
-            "maxLength": 400,
-            "title": "Work Duties",
-            "description": "The work duties of the employee",
-            "examples": ["Hotel guest reception"]
+            "maxLength": 250,
+            "title": "Job Title",
+            "description": "The job title of the employee",
+            "examples": ["Receptionist"]
           },
           "workConditions": {
             "anyOf": [
@@ -686,13 +709,6 @@
             "description": "The name of the applicable collective agreement",
             "examples": ["The collective agreement for Employment industry (HELA)"]
           },
-          "overtimeRules": {
-            "type": "string",
-            "maxLength": 400,
-            "title": "Overtime Rules",
-            "description": "The terms for the overtime work and compensation",
-            "examples": ["For overtime work you receive 25 € per overtime hour"]
-          },
           "probation": {
             "type": "string",
             "maxLength": 250,
@@ -704,13 +720,7 @@
           }
         },
         "type": "object",
-        "required": [
-          "employmentStart",
-          "workDuties",
-          "workingHours",
-          "overtimeRules",
-          "probation"
-        ],
+        "required": ["employmentStart", "jobTitle", "workingHours", "probation"],
         "title": "TermsOfWork"
       },
       "Unauthorized": {
