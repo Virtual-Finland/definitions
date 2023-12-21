@@ -655,6 +655,15 @@
             "description": "The potential municipalities in Finland that the user desires to find a job from.",
             "examples": [["091"]]
           },
+          "industries": {
+            "items": {
+              "$ref": "#/components/schemas/Industry"
+            },
+            "type": "array",
+            "title": "Industries",
+            "description": "The industry categories of the searched job",
+            "examples": [["administration"]]
+          },
           "freeText": {
             "anyOf": [
               {
@@ -699,6 +708,7 @@
           }
         },
         "type": "object",
+        "required": ["industries"],
         "title": "ForeignerJobRecommendationsRequest"
       },
       "ForeignerJobRecommendationsResponse": {
@@ -754,6 +764,23 @@
         "type": "object",
         "title": "HTTPValidationError"
       },
+      "Industry": {
+        "type": "string",
+        "enum": [
+          "ict",
+          "engineering",
+          "academic",
+          "health",
+          "sales",
+          "administration",
+          "finance",
+          "hr",
+          "manufacturing",
+          "management",
+          "gaming"
+        ],
+        "title": "Industry"
+      },
       "Job": {
         "properties": {
           "title": {
@@ -771,12 +798,14 @@
             "description": "The confidence score for the job advertisement recommendation",
             "examples": [0.88]
           },
-          "industry": {
-            "type": "string",
-            "maxLength": 40,
-            "title": "Industry",
-            "description": "The industry category of the advertised job",
-            "examples": ["administration"]
+          "industries": {
+            "items": {
+              "$ref": "#/components/schemas/Industry"
+            },
+            "type": "array",
+            "title": "Industries",
+            "description": "The industry categories of the advertised job",
+            "examples": [["administration"]]
           },
           "advertisementURL": {
             "type": "string",
@@ -810,7 +839,7 @@
           }
         },
         "type": "object",
-        "required": ["title", "score", "industry", "advertisementURL", "employer"],
+        "required": ["title", "score", "industries", "advertisementURL", "employer"],
         "title": "Job"
       },
       "NotFound": {

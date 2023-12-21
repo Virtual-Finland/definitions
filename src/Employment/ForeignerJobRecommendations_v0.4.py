@@ -7,6 +7,20 @@ from pydantic import Field, HttpUrl, constr
 EscoCode = constr(pattern=r"^[0-9]{1,3}$|^[0-9]{4}(\.(?:([1-9]|[1-9][0-9]))){0,4}$")
 
 
+class Industry(str, Enum):
+    ICT = "ict"
+    ENGINEERING = "engineering"
+    ACADEMIC = "academic"
+    HEALTH = "health"
+    SALES = "sales"
+    ADMINISTRATION = "administration"
+    FINANCE = "finance"
+    HR = "hr"
+    MANUFACTURING = "manufacturing"
+    MANAGEMENT = "management"
+    GAMING = "gaming"
+
+
 class FinnishMunicipality(str, Enum):
     AKAA = "020"
     ALAJARVI = "005"
@@ -346,6 +360,12 @@ class ForeignerJobRecommendationsRequest(CamelCaseModel):
         "find a job from.",
         examples=[[FinnishMunicipality.HELSINKI]],
     )
+    industries: List[Industry] = Field(
+        ...,
+        title="Industries",
+        description="The industry categories of the searched job",
+        examples=[[Industry.ADMINISTRATION]],
+    )
     free_text: Optional[str] = Field(
         None,
         title="Free Text",
@@ -403,12 +423,11 @@ class Job(CamelCaseModel):
         le=1.0,
         examples=[0.88],
     )
-    industry: str = Field(
+    industries: List[Industry] = Field(
         ...,
-        title="Industry",
-        description="The industry category of the advertised job",
-        max_length=40,
-        examples=["administration"],
+        title="Industries",
+        description="The industry categories of the advertised job",
+        examples=[[Industry.ADMINISTRATION]],
     )
     advertisement_url: HttpUrl = Field(
         ...,
