@@ -3,15 +3,14 @@
   "info": {
     "title": "Foreigner Job Recommendations",
     "description": "Returns the list of jobs recommended for the foreigner based on e.g. the citizenship area and previous occupations based on the European Standard Classification of Occupations (ESCO) version 1.1.1",
-    "version": "0.3.0"
+    "version": "0.4.0"
   },
   "paths": {
-    "/Employment/ForeignerJobRecommendations_v0.3": {
+    "/Employment/ForeignerJobRecommendations_v0.4": {
       "post": {
         "summary": "Foreigner Job Recommendations",
         "description": "Returns the list of jobs recommended for the foreigner based on e.g. the citizenship area and previous occupations based on the European Standard Classification of Occupations (ESCO) version 1.1.1",
-        "operationId": "request_Employment_ForeignerJobRecommendations_v0_3",
-        "deprecated": true,
+        "operationId": "request_Employment_ForeignerJobRecommendations_v0_4",
         "parameters": [
           {
             "name": "x-consent-token",
@@ -656,6 +655,15 @@
             "description": "The potential municipalities in Finland that the user desires to find a job from.",
             "examples": [["091"]]
           },
+          "industries": {
+            "items": {
+              "$ref": "#/components/schemas/Industry"
+            },
+            "type": "array",
+            "title": "Industries",
+            "description": "The industry categories of the searched jobs",
+            "examples": [["administration"]]
+          },
           "freeText": {
             "anyOf": [
               {
@@ -700,6 +708,7 @@
           }
         },
         "type": "object",
+        "required": ["industries"],
         "title": "ForeignerJobRecommendationsRequest"
       },
       "ForeignerJobRecommendationsResponse": {
@@ -755,6 +764,23 @@
         "type": "object",
         "title": "HTTPValidationError"
       },
+      "Industry": {
+        "type": "string",
+        "enum": [
+          "ict",
+          "engineering",
+          "academic",
+          "health",
+          "sales",
+          "administration",
+          "finance",
+          "hr",
+          "manufacturing",
+          "management",
+          "gaming"
+        ],
+        "title": "Industry"
+      },
       "Job": {
         "properties": {
           "title": {
@@ -771,6 +797,15 @@
             "title": "Score",
             "description": "The confidence score for the job advertisement recommendation",
             "examples": [0.88]
+          },
+          "industries": {
+            "items": {
+              "$ref": "#/components/schemas/Industry"
+            },
+            "type": "array",
+            "title": "Industries",
+            "description": "The industry categories of the advertised job",
+            "examples": [["administration"]]
           },
           "advertisementURL": {
             "type": "string",
@@ -804,7 +839,7 @@
           }
         },
         "type": "object",
-        "required": ["title", "score", "advertisementURL", "employer"],
+        "required": ["title", "score", "industries", "advertisementURL", "employer"],
         "title": "Job"
       },
       "NotFound": {

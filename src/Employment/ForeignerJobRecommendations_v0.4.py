@@ -7,6 +7,20 @@ from pydantic import Field, HttpUrl, constr
 EscoCode = constr(pattern=r"^[0-9]{1,3}$|^[0-9]{4}(\.(?:([1-9]|[1-9][0-9]))){0,4}$")
 
 
+class Industry(str, Enum):
+    ICT = "ict"
+    ENGINEERING = "engineering"
+    ACADEMIC = "academic"
+    HEALTH = "health"
+    SALES = "sales"
+    ADMINISTRATION = "administration"
+    FINANCE = "finance"
+    HR = "hr"
+    MANUFACTURING = "manufacturing"
+    MANAGEMENT = "management"
+    GAMING = "gaming"
+
+
 class FinnishMunicipality(str, Enum):
     AKAA = "020"
     ALAJARVI = "005"
@@ -346,6 +360,12 @@ class ForeignerJobRecommendationsRequest(CamelCaseModel):
         "find a job from.",
         examples=[[FinnishMunicipality.HELSINKI]],
     )
+    industries: List[Industry] = Field(
+        ...,
+        title="Industries",
+        description="The industry categories of the searched jobs",
+        examples=[[Industry.ADMINISTRATION]],
+    )
     free_text: Optional[str] = Field(
         None,
         title="Free Text",
@@ -403,6 +423,12 @@ class Job(CamelCaseModel):
         le=1.0,
         examples=[0.88],
     )
+    industries: List[Industry] = Field(
+        ...,
+        title="Industries",
+        description="The industry categories of the advertised job",
+        examples=[[Industry.ADMINISTRATION]],
+    )
     advertisement_url: HttpUrl = Field(
         ...,
         alias="advertisementURL",
@@ -446,8 +472,7 @@ class ForeignerJobRecommendationsResponse(CamelCaseModel):
 
 
 DEFINITION = DataProductDefinition(
-    version="0.3.0",
-    deprecated=True,
+    version="0.4.0",
     title="Foreigner Job Recommendations",
     description="Returns the list of jobs recommended for the foreigner based on e.g. "
     "the citizenship area and previous occupations based on the European Standard "
