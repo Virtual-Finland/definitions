@@ -363,7 +363,7 @@ class ForeignerJobRecommendationsRequest(CamelCaseModel):
     industries: List[Industry] = Field(
         ...,
         title="Industries",
-        description="The industry categories of the searched job",
+        description="The industry categories of the searched jobs",
         examples=[[Industry.ADMINISTRATION]],
     )
     free_text: Optional[str] = Field(

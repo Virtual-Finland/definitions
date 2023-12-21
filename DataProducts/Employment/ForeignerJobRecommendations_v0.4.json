@@ -661,7 +661,7 @@
             },
             "type": "array",
             "title": "Industries",
-            "description": "The industry categories of the searched job",
+            "description": "The industry categories of the searched jobs",
             "examples": [["administration"]]
           },
           "freeText": {
