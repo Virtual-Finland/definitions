@@ -1,0 +1,887 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Foreigner Job Recommendations",
+    "description": "Returns the list of jobs recommended for the foreigner based on e.g. the citizenship area and previous occupations based on the European Standard Classification of Occupations (ESCO) version 1.1.1",
+    "version": "0.4.0"
+  },
+  "paths": {
+    "/Employment/ForeignerJobRecommendations_v0.4": {
+      "post": {
+        "summary": "Foreigner Job Recommendations",
+        "description": "Returns the list of jobs recommended for the foreigner based on e.g. the citizenship area and previous occupations based on the European Standard Classification of Occupations (ESCO) version 1.1.1",
+        "operationId": "request_Employment_ForeignerJobRecommendations_v0_4",
+        "parameters": [
+          {
+            "name": "x-consent-token",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Optional consent token",
+              "default": "",
+              "title": "X-Consent-Token"
+            },
+            "description": "Optional consent token"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "The login token. Value should be \"Bearer [token]\"",
+              "default": "",
+              "title": "Authorization"
+            },
+            "description": "The login token. Value should be \"Bearer [token]\""
+          },
+          {
+            "name": "x-authorization-provider",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "The bare domain of the system that provided the token.",
+              "title": "X-Authorization-Provider"
+            },
+            "description": "The bare domain of the system that provided the token."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ForeignerJobRecommendationsRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ForeignerJobRecommendationsResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Unauthorized"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Forbidden"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotFound"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "444": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataSourceNotFound"
+                }
+              }
+            },
+            "description": "Additional Response"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataSourceError"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          },
+          "502": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BadGateway"
+                }
+              }
+            },
+            "description": "Bad Gateway"
+          },
+          "503": {
+            "content": {
+              "text/plain": {},
+              "text/html": {},
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceUnavailable"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          },
+          "504": {
+            "content": {
+              "text/plain": {},
+              "text/html": {},
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GatewayTimeout"
+                }
+              }
+            },
+            "description": "Gateway Timeout"
+          },
+          "550": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoesNotConformToDefinition"
+                }
+              }
+            },
+            "description": "Additional Response"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "BadGateway": {
+        "properties": {},
+        "type": "object",
+        "title": "BadGateway",
+        "description": "This response is reserved by Product Gateway."
+      },
+      "CitizenshipArea": {
+        "type": "string",
+        "enum": ["EEA", "non-EEA"],
+        "title": "CitizenshipArea"
+      },
+      "DataSourceError": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "title": "Error type",
+            "description": "Error identifier"
+          },
+          "message": {
+            "type": "string",
+            "title": "Error message",
+            "description": "Error description"
+          }
+        },
+        "type": "object",
+        "required": ["type", "message"],
+        "title": "DataSourceError"
+      },
+      "DataSourceNotFound": {
+        "properties": {
+          "message": {
+            "type": "string",
+            "title": "Error message",
+            "description": "Error description",
+            "default": "Data source not found"
+          }
+        },
+        "type": "object",
+        "title": "DataSourceNotFound",
+        "description": "This response is reserved by Product Gateway."
+      },
+      "DoesNotConformToDefinition": {
+        "properties": {
+          "message": {
+            "type": "string",
+            "title": "Message",
+            "default": "Response from data source does not conform to definition"
+          },
+          "data_source_status_code": {
+            "type": "integer",
+            "title": "Data source status code",
+            "description": "HTTP status code returned from the data source"
+          }
+        },
+        "type": "object",
+        "required": ["data_source_status_code"],
+        "title": "DoesNotConformToDefinition",
+        "description": "This response is reserved by Product Gateway."
+      },
+      "Employer": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "maxLength": 250,
+            "title": "Name",
+            "description": "Then name of the employer issuing the job advertisement",
+            "examples": ["Company Oy"]
+          },
+          "logoURL": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 2083,
+                "minLength": 1,
+                "format": "uri"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Logo URL",
+            "description": "The image URL of the employer logo",
+            "examples": ["https://example.com/image.jpg"]
+          }
+        },
+        "type": "object",
+        "required": ["name"],
+        "title": "Employer"
+      },
+      "FinnishMunicipality": {
+        "type": "string",
+        "enum": [
+          "020",
+          "005",
+          "009",
+          "010",
+          "016",
+          "018",
+          "019",
+          "035",
+          "043",
+          "046",
+          "047",
+          "049",
+          "050",
+          "051",
+          "052",
+          "060",
+          "061",
+          "062",
+          "065",
+          "069",
+          "071",
+          "072",
+          "074",
+          "075",
+          "076",
+          "077",
+          "078",
+          "079",
+          "081",
+          "082",
+          "086",
+          "111",
+          "090",
+          "091",
+          "097",
+          "098",
+          "102",
+          "103",
+          "105",
+          "106",
+          "108",
+          "109",
+          "139",
+          "140",
+          "142",
+          "143",
+          "145",
+          "146",
+          "153",
+          "148",
+          "149",
+          "151",
+          "152",
+          "165",
+          "167",
+          "169",
+          "170",
+          "171",
+          "172",
+          "176",
+          "177",
+          "178",
+          "179",
+          "181",
+          "182",
+          "186",
+          "202",
+          "204",
+          "205",
+          "208",
+          "211",
+          "213",
+          "214",
+          "216",
+          "217",
+          "218",
+          "224",
+          "226",
+          "230",
+          "231",
+          "232",
+          "233",
+          "235",
+          "236",
+          "239",
+          "240",
+          "320",
+          "241",
+          "322",
+          "244",
+          "245",
+          "249",
+          "250",
+          "256",
+          "257",
+          "260",
+          "261",
+          "263",
+          "265",
+          "271",
+          "272",
+          "273",
+          "275",
+          "276",
+          "280",
+          "284",
+          "285",
+          "286",
+          "287",
+          "288",
+          "290",
+          "291",
+          "295",
+          "297",
+          "300",
+          "301",
+          "304",
+          "305",
+          "312",
+          "316",
+          "317",
+          "318",
+          "398",
+          "399",
+          "400",
+          "407",
+          "402",
+          "403",
+          "405",
+          "408",
+          "410",
+          "416",
+          "417",
+          "418",
+          "420",
+          "421",
+          "422",
+          "423",
+          "425",
+          "426",
+          "444",
+          "430",
+          "433",
+          "434",
+          "435",
+          "436",
+          "438",
+          "440",
+          "441",
+          "475",
+          "478",
+          "480",
+          "481",
+          "483",
+          "484",
+          "489",
+          "491",
+          "494",
+          "495",
+          "498",
+          "499",
+          "500",
+          "503",
+          "504",
+          "505",
+          "508",
+          "507",
+          "529",
+          "531",
+          "535",
+          "536",
+          "538",
+          "541",
+          "543",
+          "545",
+          "560",
+          "561",
+          "562",
+          "563",
+          "564",
+          "309",
+          "576",
+          "577",
+          "578",
+          "445",
+          "580",
+          "581",
+          "599",
+          "583",
+          "854",
+          "584",
+          "588",
+          "592",
+          "593",
+          "595",
+          "598",
+          "601",
+          "604",
+          "607",
+          "608",
+          "609",
+          "611",
+          "638",
+          "614",
+          "615",
+          "616",
+          "619",
+          "620",
+          "623",
+          "624",
+          "625",
+          "626",
+          "630",
+          "631",
+          "635",
+          "636",
+          "678",
+          "710",
+          "680",
+          "681",
+          "683",
+          "684",
+          "686",
+          "687",
+          "689",
+          "691",
+          "694",
+          "697",
+          "698",
+          "700",
+          "702",
+          "704",
+          "707",
+          "729",
+          "732",
+          "734",
+          "736",
+          "790",
+          "738",
+          "739",
+          "740",
+          "742",
+          "743",
+          "746",
+          "747",
+          "748",
+          "791",
+          "749",
+          "751",
+          "753",
+          "755",
+          "758",
+          "759",
+          "761",
+          "762",
+          "765",
+          "766",
+          "768",
+          "771",
+          "777",
+          "778",
+          "781",
+          "783",
+          "831",
+          "832",
+          "833",
+          "834",
+          "837",
+          "844",
+          "845",
+          "846",
+          "848",
+          "849",
+          "850",
+          "851",
+          "853",
+          "857",
+          "858",
+          "859",
+          "886",
+          "887",
+          "889",
+          "890",
+          "892",
+          "893",
+          "895",
+          "785",
+          "905",
+          "908",
+          "092",
+          "915",
+          "918",
+          "921",
+          "922",
+          "924",
+          "925",
+          "927",
+          "931",
+          "934",
+          "935",
+          "936",
+          "941",
+          "946",
+          "976",
+          "977",
+          "980",
+          "981",
+          "989",
+          "992"
+        ],
+        "title": "FinnishMunicipality"
+      },
+      "Forbidden": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "title": "Error type",
+            "description": "Error identifier"
+          },
+          "message": {
+            "type": "string",
+            "title": "Error message",
+            "description": "Error description"
+          }
+        },
+        "type": "object",
+        "required": ["type", "message"],
+        "title": "Forbidden"
+      },
+      "ForeignerJobRecommendationsRequest": {
+        "properties": {
+          "escoCodes": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string",
+                  "pattern": "^[0-9]{1,3}$|^[0-9]{4}(\\.(?:([1-9]|[1-9][0-9]))){0,4}$"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "ESCO Codes",
+            "description": "The ESCO code based on the standard ESCO occupation classification",
+            "examples": [["8331.1"]]
+          },
+          "citizenshipArea": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/CitizenshipArea"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Citizenship Area",
+            "description": "The citizenship area based on his or her native country. Switzerland is considered as part of the EEA category.",
+            "examples": ["EEA"]
+          },
+          "preferredMunicipalities": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/FinnishMunicipality"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Preferred Municipalities",
+            "description": "The potential municipalities in Finland that the user desires to find a job from.",
+            "examples": [["091"]]
+          },
+          "freeText": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 250
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Free Text",
+            "description": "Free text that the user wants to use for filtering job advertisements",
+            "examples": ["Driving license"]
+          },
+          "limit": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 1.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Limit",
+            "description": "The limit of items per page in response",
+            "examples": [1000]
+          },
+          "offset": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Offset",
+            "description": "The starting index of responses",
+            "examples": [0]
+          }
+        },
+        "type": "object",
+        "title": "ForeignerJobRecommendationsRequest"
+      },
+      "ForeignerJobRecommendationsResponse": {
+        "properties": {
+          "identifier": {
+            "type": "string",
+            "title": "Identifier",
+            "description": "The job recommendation search identifier",
+            "examples": ["123e4567-e89b-12d3-a456-426614174000"]
+          },
+          "jobs": {
+            "items": {
+              "$ref": "#/components/schemas/Job"
+            },
+            "type": "array",
+            "title": "Jobs",
+            "description": "The list of jobs recommended for the foreigner based on the input properties. In case of no input filters this field will have an empty list and the total jobs field will show the total count."
+          },
+          "totalJobs": {
+            "type": "integer",
+            "title": "Total Jobs",
+            "description": "The total count of job recommendations",
+            "examples": [47]
+          }
+        },
+        "type": "object",
+        "required": ["identifier", "jobs", "totalJobs"],
+        "title": "ForeignerJobRecommendationsResponse"
+      },
+      "GatewayTimeout": {
+        "properties": {
+          "message": {
+            "type": "string",
+            "title": "Error message",
+            "description": "Error description",
+            "default": ""
+          }
+        },
+        "type": "object",
+        "title": "GatewayTimeout",
+        "description": "This response is reserved by Product Gateway."
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "Job": {
+        "properties": {
+          "title": {
+            "type": "string",
+            "maxLength": 250,
+            "title": "Title",
+            "description": "Title of the advertised job",
+            "examples": ["Item specialist"]
+          },
+          "score": {
+            "type": "number",
+            "maximum": 1.0,
+            "minimum": 0.0,
+            "title": "Score",
+            "description": "The confidence score for the job advertisement recommendation",
+            "examples": [0.88]
+          },
+          "advertisementURL": {
+            "type": "string",
+            "maxLength": 2083,
+            "minLength": 1,
+            "format": "uri",
+            "title": "Advertisement URL",
+            "description": "The link to the service providing the job advertisement details",
+            "examples": ["https://jobadvertisement.example.com/ad123"]
+          },
+          "municipalityCode": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/FinnishMunicipality"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Municipality Code",
+            "description": "The location of the advertised job",
+            "examples": ["091"]
+          },
+          "employer": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Employer"
+              }
+            ],
+            "description": "The details of an employer that issued the job advertisement"
+          }
+        },
+        "type": "object",
+        "required": ["title", "score", "advertisementURL", "employer"],
+        "title": "Job"
+      },
+      "NotFound": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "title": "Error type",
+            "description": "Error identifier"
+          },
+          "message": {
+            "type": "string",
+            "title": "Error message",
+            "description": "Error description"
+          }
+        },
+        "type": "object",
+        "required": ["type", "message"],
+        "title": "NotFound"
+      },
+      "ServiceUnavailable": {
+        "properties": {
+          "message": {
+            "type": "string",
+            "title": "Error message",
+            "description": "Error description",
+            "default": ""
+          }
+        },
+        "type": "object",
+        "title": "ServiceUnavailable",
+        "description": "This response is reserved by Product Gateway."
+      },
+      "Unauthorized": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "title": "Error type",
+            "description": "Error identifier"
+          },
+          "message": {
+            "type": "string",
+            "title": "Error message",
+            "description": "Error description"
+          }
+        },
+        "type": "object",
+        "required": ["type", "message"],
+        "title": "Unauthorized"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          }
+        },
+        "type": "object",
+        "required": ["loc", "msg", "type"],
+        "title": "ValidationError"
+      }
+    }
+  }
+}
