@@ -403,6 +403,13 @@ class Job(CamelCaseModel):
         le=1.0,
         examples=[0.88],
     )
+    industry: str = Field(
+        ...,
+        title="Industry",
+        description="The industry category of the advertised job",
+        max_length=40,
+        examples=["administration"],
+    )
     advertisement_url: HttpUrl = Field(
         ...,
         alias="advertisementURL",

@@ -771,6 +771,13 @@
             "description": "The confidence score for the job advertisement recommendation",
             "examples": [0.88]
           },
+          "industry": {
+            "type": "string",
+            "maxLength": 40,
+            "title": "Industry",
+            "description": "The industry category of the advertised job",
+            "examples": ["administration"]
+          },
           "advertisementURL": {
             "type": "string",
             "maxLength": 2083,
@@ -803,7 +810,7 @@
           }
         },
         "type": "object",
-        "required": ["title", "score", "advertisementURL", "employer"],
+        "required": ["title", "score", "industry", "advertisementURL", "employer"],
         "title": "Job"
       },
       "NotFound": {
