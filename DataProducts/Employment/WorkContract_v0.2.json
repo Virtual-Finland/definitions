@@ -3,7 +3,7 @@
   "info": {
     "title": "Employment Work Contract",
     "description": "Contents of a work contract",
-    "version": "0.2.0"
+    "version": "0.2.1"
   },
   "paths": {
     "/Employment/WorkContract_v0.2": {
@@ -411,7 +411,7 @@
             "format": "date",
             "title": "Signature Date",
             "description": "The date of the employee signature for the work contract",
-            "examples": ["2023-08-27T00:00:00"]
+            "examples": ["2023-08-27"]
           }
         },
         "type": "object",
@@ -460,7 +460,7 @@
             "format": "date",
             "title": "Signature Date",
             "description": "The date of the employer signature for the work contract",
-            "examples": ["2023-08-25T00:00:00"]
+            "examples": ["2023-08-25"]
           }
         },
         "type": "object",
@@ -614,7 +614,7 @@
             "format": "date",
             "title": "Employment Start",
             "description": "The start date of the employment",
-            "examples": ["2023-11-07T00:00:00"]
+            "examples": ["2023-11-07"]
           },
           "employmentEnd": {
             "anyOf": [
@@ -628,7 +628,7 @@
             ],
             "title": "Employment End",
             "description": "The end date of the employment",
-            "examples": ["2024-02-19T00:00:00"]
+            "examples": ["2024-02-19"]
           },
           "groundsForFixedTerm": {
             "anyOf": [
