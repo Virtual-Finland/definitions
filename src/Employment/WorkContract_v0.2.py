@@ -1,4 +1,3 @@
-import datetime
 from datetime import date
 from enum import Enum
 from typing import List, Optional
@@ -52,7 +51,7 @@ class EmployerInfo(CamelCaseModel):
         ...,
         title="Signature Date",
         description="The date of the employer signature for the work contract",
-        examples=[datetime.datetime(2023, 8, 25)],
+        examples=[date(2023, 8, 25)],
     )
 
 
@@ -97,7 +96,7 @@ class EmployeeInfo(CamelCaseModel):
         ...,
         title="Signature Date",
         description="The date of the employee signature for the work contract",
-        examples=[datetime.datetime(2023, 8, 27)],
+        examples=[date(2023, 8, 27)],
     )
 
 
@@ -106,13 +105,13 @@ class TermsOfWork(CamelCaseModel):
         ...,
         title="Employment Start",
         description="The start date of the employment",
-        examples=[datetime.datetime(2023, 11, 7)],
+        examples=[date(2023, 11, 7)],
     )
     employment_end: Optional[date] = Field(
         None,
         title="Employment End",
         description="The end date of the employment",
-        examples=[datetime.datetime(2024, 2, 19)],
+        examples=[date(2024, 2, 19)],
     )
     grounds_for_fixed_term: Optional[str] = Field(
         None,
@@ -323,7 +322,7 @@ class WorkContractResponse(CamelCaseModel):
 
 
 DEFINITION = DataProductDefinition(
-    version="0.2.0",
+    version="0.2.1",
     title="Employment Work Contract",
     description="Contents of a work contract",
     request=WorkContractRequest,
