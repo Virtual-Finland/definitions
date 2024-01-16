@@ -294,8 +294,8 @@ class WorkContractResponse(CamelCaseModel):
         title="Compensation",
         description="The details of the compensation for the work",
     )
-    holidays: Holidays = Field(
-        ...,
+    holidays: Optional[Holidays] = Field(
+        None,
         title="Holidays",
         description="The details of the paid holidays",
     )
@@ -304,8 +304,8 @@ class WorkContractResponse(CamelCaseModel):
         title="Benefits",
         description="The list of taxable benefits for the employee in addition to salary compensation",
     )
-    termination: str = Field(
-        ...,
+    termination: Optional[str] = Field(
+        None,
         title="Termination",
         max_length=500,
         description="The terms and conditions for the contract termination",
@@ -322,8 +322,7 @@ class WorkContractResponse(CamelCaseModel):
 
 
 DEFINITION = DataProductDefinition(
-    version="0.2.1",
-    deprecated=True,
+    version="0.3.0",
     title="Employment Work Contract",
     description="Contents of a work contract",
     request=WorkContractRequest,

@@ -3,15 +3,14 @@
   "info": {
     "title": "Employment Work Contract",
     "description": "Contents of a work contract",
-    "version": "0.2.1"
+    "version": "0.3.0"
   },
   "paths": {
-    "/Employment/WorkContract_v0.2": {
+    "/Employment/WorkContract_v0.3": {
       "post": {
         "summary": "Employment Work Contract",
         "description": "Contents of a work contract",
-        "operationId": "request_Employment_WorkContract_v0_2",
-        "deprecated": true,
+        "operationId": "request_Employment_WorkContract_v0_3",
         "parameters": [
           {
             "name": "x-consent-token",
@@ -813,11 +812,15 @@
             "description": "The details of the compensation for the work"
           },
           "holidays": {
-            "allOf": [
+            "anyOf": [
               {
                 "$ref": "#/components/schemas/Holidays"
+              },
+              {
+                "type": "null"
               }
             ],
+            "title": "Holidays",
             "description": "The details of the paid holidays"
           },
           "benefits": {
@@ -829,8 +832,15 @@
             "description": "The list of taxable benefits for the employee in addition to salary compensation"
           },
           "termination": {
-            "type": "string",
-            "maxLength": 500,
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 500
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Termination",
             "description": "The terms and conditions for the contract termination",
             "examples": [
@@ -852,9 +862,7 @@
           "employeeInfo",
           "termsOfWork",
           "compensation",
-          "holidays",
           "benefits",
-          "termination",
           "otherTerms"
         ],
         "title": "WorkContractResponse"
