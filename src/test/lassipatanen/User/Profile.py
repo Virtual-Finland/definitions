@@ -271,7 +271,7 @@ class ProfileResponse(CamelCaseModel):
 
 
 class ProfileRequest(CamelCaseModel):
-    ...
+    pass
 
 
 DEFINITION = DataProductDefinition(
