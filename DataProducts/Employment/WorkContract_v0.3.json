@@ -53,6 +53,24 @@
               "title": "X-Authorization-Provider"
             },
             "description": "The bare domain of the system that provided the token."
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "X-API-Key",
+              "description": "API key or token"
+            },
+            "description": "API key or token"
           }
         ],
         "requestBody": {
@@ -256,11 +274,7 @@
       "Compensation": {
         "properties": {
           "paymentGrounds": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/PaymentGrounds"
-              }
-            ],
+            "$ref": "#/components/schemas/PaymentGrounds",
             "title": "Payment Grounds",
             "description": "The grounds for paying the salary",
             "examples": ["monthly", "hourly"]
@@ -800,38 +814,22 @@
       "WorkContractResponse": {
         "properties": {
           "employerInfo": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/EmployerInfo"
-              }
-            ],
+            "$ref": "#/components/schemas/EmployerInfo",
             "title": "Employer Info",
             "description": "The details of the employer"
           },
           "employeeInfo": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/EmployeeInfo"
-              }
-            ],
+            "$ref": "#/components/schemas/EmployeeInfo",
             "title": "Employee Info",
             "description": "The details of the employee"
           },
           "termsOfWork": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/TermsOfWork"
-              }
-            ],
+            "$ref": "#/components/schemas/TermsOfWork",
             "title": "Terms of Work",
             "description": "The terms and conditions for the work"
           },
           "compensation": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/Compensation"
-              }
-            ],
+            "$ref": "#/components/schemas/Compensation",
             "description": "The details of the compensation for the work"
           },
           "holidays": {

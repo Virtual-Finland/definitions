@@ -51,6 +51,24 @@
               "title": "X-Authorization-Provider"
             },
             "description": "The bare domain of the system that provided the token."
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "X-API-Key",
+              "description": "API key or token"
+            },
+            "description": "API key or token"
           }
         ],
         "requestBody": {
@@ -599,11 +617,7 @@
       "SignatoryRights": {
         "properties": {
           "role": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/Role"
-              }
-            ],
+            "$ref": "#/components/schemas/Role",
             "description": "The role of the person that has a signing right in the company",
             "examples": ["chairperson"]
           },
@@ -650,11 +664,7 @@
             "examples": ["1976-04-16"]
           },
           "nationality": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/ISO_3166_1_Alpha_3"
-              }
-            ],
+            "$ref": "#/components/schemas/ISO_3166_1_Alpha_3",
             "title": "Nationality",
             "description": "The nationality of a person",
             "examples": ["USA"]
