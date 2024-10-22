@@ -53,6 +53,24 @@
               "title": "X-Authorization-Provider"
             },
             "description": "The bare domain of the system that provided the token."
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "X-API-Key",
+              "description": "API key or token"
+            },
+            "description": "API key or token"
           }
         ],
         "requestBody": {
@@ -1205,11 +1223,7 @@
             "examples": ["Oy Example Ab"]
           },
           "legalForm": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/EntityLegalForm"
-              }
-            ],
+            "$ref": "#/components/schemas/EntityLegalForm",
             "title": "Legal form",
             "description": "ISO 20275 legal entity code from version 1.4.1",
             "examples": ["DKUW"]
@@ -1224,11 +1238,7 @@
             "examples": [["62.01"]]
           },
           "legalStatus": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/LegalStatus"
-              }
-            ],
+            "$ref": "#/components/schemas/LegalStatus",
             "title": "Legal status",
             "description": "Status of the legal entity",
             "examples": ["NORMAL"]
@@ -4960,11 +4970,7 @@
             "examples": ["Southern Finland"]
           },
           "country": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/ISO_3166_1_Alpha_2"
-              }
-            ],
+            "$ref": "#/components/schemas/ISO_3166_1_Alpha_2",
             "title": "Country",
             "description": "ISO 3166-1 alpha-2 code for the country",
             "examples": ["FI"]

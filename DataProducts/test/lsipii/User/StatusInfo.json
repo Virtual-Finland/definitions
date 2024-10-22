@@ -52,6 +52,24 @@
               "title": "X-Authorization-Provider"
             },
             "description": "The bare domain of the system that provided the token."
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "X-API-Key",
+              "description": "API key or token"
+            },
+            "description": "API key or token"
           }
         ],
         "requestBody": {
@@ -362,11 +380,7 @@
             "examples": ["tax_form"]
           },
           "statusValue": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/StatusInfoValue"
-              }
-            ],
+            "$ref": "#/components/schemas/StatusInfoValue",
             "title": "Status",
             "description": "Value of the status",
             "examples": ["SENT"]
