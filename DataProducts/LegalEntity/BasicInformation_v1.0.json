@@ -3,7 +3,7 @@
   "info": {
     "title": "Legal Entity Basic Information",
     "description": "Data Product for Legal Entity Basic Information",
-    "version": "1.0.0"
+    "version": "1.0.1"
   },
   "paths": {
     "/LegalEntity/BasicInformation_v1.0": {
@@ -5047,5 +5047,6 @@
         "title": "ValidationError"
       }
     }
-  }
+  },
+  "x-strict-validation": false
 }

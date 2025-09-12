@@ -146,7 +146,8 @@ class JobPostingResponse(CamelCaseModel):
 
 
 DEFINITION = DataProductDefinition(
-    version="0.0.1",
+    version="0.0.2",
+    strict_validation=False,
     title="Job Posting",
     description="Data product for Job Posting",
     request=JobPostingRequest,

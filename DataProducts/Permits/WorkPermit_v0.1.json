@@ -3,7 +3,7 @@
   "info": {
     "title": "Permits Work Permit",
     "description": "Work permit details of a person",
-    "version": "0.1.0"
+    "version": "0.1.1"
   },
   "paths": {
     "/Permits/WorkPermit_v0.1": {
@@ -506,5 +506,6 @@
         "title": "WorkPermitResponse"
       }
     }
-  }
+  },
+  "x-strict-validation": false
 }

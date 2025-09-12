@@ -3,7 +3,7 @@
   "info": {
     "title": "Figure for population",
     "description": "Data Product for population figure",
-    "version": "0.0.1"
+    "version": "0.0.2"
   },
   "paths": {
     "/test/lsipii/Figure/Population": {
@@ -450,5 +450,6 @@
         "title": "ValidationError"
       }
     }
-  }
+  },
+  "x-strict-validation": false
 }

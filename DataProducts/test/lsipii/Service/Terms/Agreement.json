@@ -3,7 +3,7 @@
   "info": {
     "title": "Retrieve user's terms of service agreement",
     "description": "Data product for the user's terms of service agreement",
-    "version": "0.0.1"
+    "version": "0.0.2"
   },
   "paths": {
     "/test/lsipii/Service/Terms/Agreement": {
@@ -466,5 +466,6 @@
         "title": "ValidationError"
       }
     }
-  }
+  },
+  "x-strict-validation": false
 }

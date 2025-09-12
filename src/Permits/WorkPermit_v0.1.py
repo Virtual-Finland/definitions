@@ -71,7 +71,8 @@ class WorkPermitResponse(CamelCaseModel):
 
 
 DEFINITION = DataProductDefinition(
-    version="0.1.0",
+    version="0.1.1",
+    strict_validation=False,
     title="Permits Work Permit",
     description="Work permit details of a person",
     request=WorkPermitRequest,

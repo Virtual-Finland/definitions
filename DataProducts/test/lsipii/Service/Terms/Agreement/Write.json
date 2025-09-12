@@ -3,7 +3,7 @@
   "info": {
     "title": "Update the user's terms of service agreement",
     "description": "Data product for updating the user's terms of service agreement",
-    "version": "0.0.1"
+    "version": "0.0.2"
   },
   "paths": {
     "/test/lsipii/Service/Terms/Agreement/Write": {
@@ -477,5 +477,6 @@
         "title": "ValidationError"
       }
     }
-  }
+  },
+  "x-strict-validation": false
 }

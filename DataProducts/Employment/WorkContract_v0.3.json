@@ -3,7 +3,7 @@
   "info": {
     "title": "Employment Work Contract",
     "description": "Contents of a work contract",
-    "version": "0.3.0"
+    "version": "0.3.1"
   },
   "paths": {
     "/Employment/WorkContract_v0.3": {
@@ -889,5 +889,6 @@
         "title": "WorkContractResponse"
       }
     }
-  }
+  },
+  "x-strict-validation": false
 }

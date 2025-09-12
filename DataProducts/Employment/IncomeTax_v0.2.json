@@ -3,7 +3,7 @@
   "info": {
     "title": "Employment Income Tax",
     "description": "Tax withholding details of a person's income",
-    "version": "0.2.0"
+    "version": "0.2.1"
   },
   "paths": {
     "/Employment/IncomeTax_v0.2": {
@@ -457,5 +457,6 @@
         "title": "ValidationError"
       }
     }
-  }
+  },
+  "x-strict-validation": false
 }

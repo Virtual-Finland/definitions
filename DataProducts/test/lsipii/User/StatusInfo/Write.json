@@ -3,7 +3,7 @@
   "info": {
     "title": "Save user's status information",
     "description": "Data product for user's status information",
-    "version": "0.0.1"
+    "version": "0.0.2"
   },
   "paths": {
     "/test/lsipii/User/StatusInfo/Write": {
@@ -468,5 +468,6 @@
         "title": "ValidationError"
       }
     }
-  }
+  },
+  "x-strict-validation": false
 }

@@ -3,7 +3,7 @@
   "info": {
     "title": "Person Job Applicant Profile",
     "description": "A comprehensive set of skills, competences, occupations and work preferences of a person",
-    "version": "2.0.0"
+    "version": "2.0.1"
   },
   "paths": {
     "/Person/JobApplicantProfile_v2.0": {
@@ -5650,5 +5650,6 @@
         "title": "WorkingTime"
       }
     }
-  }
+  },
+  "x-strict-validation": false
 }

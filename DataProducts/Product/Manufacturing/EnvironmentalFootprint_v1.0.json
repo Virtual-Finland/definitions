@@ -3,7 +3,7 @@
   "info": {
     "title": "Environmental footprint information for a product",
     "description": "Information about environmental footprint of a product in the manufacturing phase",
-    "version": "1.0.0"
+    "version": "1.0.1"
   },
   "paths": {
     "/Product/Manufacturing/EnvironmentalFootprint_v1.0": {
@@ -433,5 +433,6 @@
         "title": "ValidationError"
       }
     }
-  }
+  },
+  "x-strict-validation": false
 }
