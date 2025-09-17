@@ -3,7 +3,7 @@
   "info": {
     "title": "Foreigner Job Recommendations",
     "description": "Returns the list of jobs recommended for the foreigner based on e.g. the citizenship area and previous occupations based on the European Standard Classification of Occupations (ESCO) version 1.1.1",
-    "version": "0.4.0"
+    "version": "0.4.1"
   },
   "paths": {
     "/Employment/ForeignerJobRecommendations_v0.4": {
@@ -216,6 +216,7 @@
     "schemas": {
       "BadGateway": {
         "properties": {},
+        "additionalProperties": false,
         "type": "object",
         "title": "BadGateway",
         "description": "This response is reserved by Product Gateway."
@@ -238,6 +239,7 @@
             "description": "Error description"
           }
         },
+        "additionalProperties": false,
         "type": "object",
         "required": ["type", "message"],
         "title": "DataSourceError"
@@ -251,6 +253,7 @@
             "default": "Data source not found"
           }
         },
+        "additionalProperties": false,
         "type": "object",
         "title": "DataSourceNotFound",
         "description": "This response is reserved by Product Gateway."
@@ -268,6 +271,7 @@
             "description": "HTTP status code returned from the data source"
           }
         },
+        "additionalProperties": false,
         "type": "object",
         "required": ["data_source_status_code"],
         "title": "DoesNotConformToDefinition",
@@ -631,6 +635,7 @@
             "description": "Error description"
           }
         },
+        "additionalProperties": false,
         "type": "object",
         "required": ["type", "message"],
         "title": "Forbidden"
@@ -775,6 +780,7 @@
             "default": ""
           }
         },
+        "additionalProperties": false,
         "type": "object",
         "title": "GatewayTimeout",
         "description": "This response is reserved by Product Gateway."
@@ -879,6 +885,7 @@
             "description": "Error description"
           }
         },
+        "additionalProperties": false,
         "type": "object",
         "required": ["type", "message"],
         "title": "NotFound"
@@ -892,6 +899,7 @@
             "default": "Rate limit exceeded"
           }
         },
+        "additionalProperties": false,
         "type": "object",
         "title": "RateLimitExceeded",
         "description": "This response is reserved by Product Gateway."
@@ -905,6 +913,7 @@
             "default": ""
           }
         },
+        "additionalProperties": false,
         "type": "object",
         "title": "ServiceUnavailable",
         "description": "This response is reserved by Product Gateway."
@@ -922,6 +931,7 @@
             "description": "Error description"
           }
         },
+        "additionalProperties": false,
         "type": "object",
         "required": ["type", "message"],
         "title": "Unauthorized"
@@ -956,5 +966,6 @@
         "title": "ValidationError"
       }
     }
-  }
+  },
+  "x-strict-validation": false
 }
